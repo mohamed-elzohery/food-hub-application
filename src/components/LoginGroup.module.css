@@ -1,0 +1,41 @@
+
+.form-control{
+    display: flex;
+    flex-direction: column;
+}
+
+ .form-control p{
+    color: red;
+}
+
+
+
+ .form-control:not(:last-child){
+    margin-bottom: 20px;
+}
+
+ .form-control label{
+    margin-bottom: 4px;
+    font-weight: bold;
+    text-transform: capitalize;
+    font-size: 24px;
+}
+
+ .form-control input{
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid blueviolet;
+    font-size: 20px;
+    padding: 2px 5px;
+}
+
+ .form-control.invalid input{
+    border: 1px solid red;
+}
+
+ .form-control input:focus{
+    outline: none;
+    border: 2px solid darkblue;
+}
+
+ 
