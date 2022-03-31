@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import classes from "../styles/SignUpForm.module.css";
 import useInput from "../hooks/use-input";
 import FormGroup from "./FormGroup";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import AuthContext from "../storeTokens/Auth-Context";
+import axios from "axios";
 
 const emailRegex =
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -41,6 +43,10 @@ const validatePassword = (val) => {
 };
 
 const SignUpForm = () => {
+  const [isLogin, setIsLogin] = useState(false);
+  const authCtx = useContext(AuthContext);
+  let navigate = useNavigate();
+
   const {
     enteredValue: enteredName,
     hasError: nameInputHasError,
@@ -96,6 +102,68 @@ const SignUpForm = () => {
     resetEmailHandler();
     resetPasswordHandler();
     conresetPasswordHandler();
+
+    if (isLogin) {
+      //to be added
+    } else {
+      axios
+        .post(
+          "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCzTfDrGGGFjKW3KWnQHVSW6nq7P-F3DXU",
+          {
+            email: enteredEmail,
+            password: enteredPassword,
+            name: enteredName,
+            returnSecureToken: true,
+          }
+        )
+        .then((res) => {
+          console.log(res);
+          authCtx.login(
+            res.data.idToken,
+            new Date(Date.now() + res.data.expiresIn * 1000)
+          );
+          navigate("/");
+        })
+        .catch((err) => {
+          alert(err.message);
+        });
+
+      // fetch(
+      //   "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCzTfDrGGGFjKW3KWnQHVSW6nq7P-F3DXU",
+      //   {
+      //     method: "POST",
+      //     body: JSON.stringify({
+      //       email: enteredEmail,
+      //       password: enteredPassword,
+      //       returnSecureToken: true,
+      //     }),
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //     },
+      //   }
+      // )
+      //   .then((res) => {
+      //     if (res.ok) {
+      //       return res.json();
+      //     } else {
+      //       return res.json().then((data) => {
+      //         let errorMessage = "Authentication failed!";
+      //         throw new Error(errorMessage);
+      //       });
+      //     }
+      //   })
+      //   .then((data) => {
+      //     authCtx.login(
+      //       data.idToken,
+      //       new Date(Date.now() + data.expiresIn * 1000)
+      //     );
+      //     // useNavigate("/");
+      //     // history.replace("/");
+      //   })
+      //   .catch((err) => {
+      //     alert(err.message);
+      //   });
+    }
   };
 
   return (

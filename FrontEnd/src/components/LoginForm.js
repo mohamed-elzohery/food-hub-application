@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import classes from "../styles/LoginForm.module.css";
 import useInput from "../hooks/use-input";
 import FormGroup from "./FormGroup";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import AuthContext from "../storeTokens/Auth-Context";
+import axios from "axios";
 
+//some utility functions
 const emailRegex =
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -27,6 +30,11 @@ const validatePassword = (val) => {
 };
 
 function LoginForm() {
+  const [isLogin, setIsLogin] = useState(false);
+  const authCtx = useContext(AuthContext);
+  let navigate = useNavigate();
+
+  //data from the hook
   const {
     enteredValue: enteredEmail,
     hasError: emailInputHasError,
@@ -37,6 +45,7 @@ function LoginForm() {
     resetHandler: resetEmailHandler,
   } = useInput(validateEmail);
 
+  //data from the hook
   const {
     enteredValue: enteredPassword,
     hasError: passwordInputHasError,
@@ -52,6 +61,31 @@ function LoginForm() {
     console.log("Form is sumbitted successfully");
     resetEmailHandler();
     resetPasswordHandler();
+
+    if (isLogin) {
+      //to be added
+    } else {
+      axios
+        .post(
+          "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCzTfDrGGGFjKW3KWnQHVSW6nq7P-F3DXU",
+          {
+            email: enteredEmail,
+            password: enteredPassword,
+            returnSecureToken: true,
+          }
+        )
+        .then((res) => {
+          console.log(res);
+          authCtx.login(
+            res.data.idToken,
+            new Date(Date.now() + res.data.expiresIn * 1000)
+          );
+          navigate("/");
+        })
+        .catch((err) => {
+          alert(err.message);
+        });
+    }
   };
 
   return (
@@ -91,7 +125,6 @@ function LoginForm() {
           </button>
         </div>
       </form>
-      );
     </>
   );
 }
