@@ -1,0 +1,35 @@
+form {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 12px 30px;
+  border: 1px solid #000;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 20px;
+}
+
+form .form-action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+form .form-action button {
+  padding: 10px 24px;
+  font-size: 24px;
+  background-color: darkblue;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+form .form-action button.disabled {
+  pointer-events: none;
+  opacity: 0.6;
+  background-color: #5ee6eb;
+}
+h1 {
+  text-align: center;
+}
