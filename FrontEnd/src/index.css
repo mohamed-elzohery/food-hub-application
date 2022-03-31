@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@700&family=Mochiy+Pop+P+One&display=swap");
+* {
+  font-family: "Cairo", sans-serif;
+  font-family: "Mochiy Pop P One", sans-serif;
+}
+body {
+  height: 100vh;
+  background-color: #00dbde;
+  background-image: linear-gradient(90deg, #00dbde 0%, #fc00ff 100%);
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
