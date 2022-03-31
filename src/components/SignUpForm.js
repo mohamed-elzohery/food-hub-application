@@ -139,7 +139,8 @@ const SignUpForm = () => {
         errMsg={conpasswordErrMsg}
       />
       <p>
-        Already registerd? <Link to="/login"> Login!</Link>
+        Already registerd?
+        <Link to="/login"> Login!</Link>
       </p>
 
       <div className={classes["form-action"]}>
