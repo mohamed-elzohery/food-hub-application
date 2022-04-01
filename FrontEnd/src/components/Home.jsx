@@ -23,6 +23,11 @@ function Home() {
                 <NavLink to="/auth">Signup/Login</NavLink>
               </li>
             )}
+            {isLoggedIn && (
+              <li>
+                <NavLink to="/profile">Profile</NavLink>
+              </li>
+            )}
             {/* {!isLoggedIn && (
               <li>
                 <NavLink to="/login">Login</NavLink>

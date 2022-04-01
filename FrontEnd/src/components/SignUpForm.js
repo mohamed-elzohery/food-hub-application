@@ -31,7 +31,7 @@ const validateEmail = (val) => {
   return { isValid: true };
 };
 
-const validatePassword = (val) => {
+export const validatePassword = (val) => {
   let password = val.toString().trim().toLowerCase();
   if (password === "") return { isValid: false, msg: "Password is required" };
   if (password.length < 8)
@@ -43,7 +43,7 @@ const validatePassword = (val) => {
 };
 
 const SignUpForm = () => {
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
   const authCtx = useContext(AuthContext);
   let navigate = useNavigate();
 
@@ -237,7 +237,7 @@ const SignUpForm = () => {
       ) : (
         ""
       )}
-      <p>
+      <div>
         {isLogin ? "Not a registerd user?" : "Already a registered user?"}
         {/* <Link to="/login"> Login!</Link> */}
         <button
@@ -247,7 +247,7 @@ const SignUpForm = () => {
         >
           {isLogin ? "Register" : "Login!"}
         </button>
-      </p>
+      </div>
 
       <div className={classes["form-action"]}>
         {isLogin ? (
