@@ -21,6 +21,7 @@ const FormGroup = (props) => {
       <input
         type={type}
         id={name}
+        placeholder={name}
         onChange={valueChangedHandler}
         onBlur={inputBlurHandler}
         value={enteredValue}

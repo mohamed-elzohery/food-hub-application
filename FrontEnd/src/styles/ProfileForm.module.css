@@ -1,0 +1,59 @@
+.form {
+  width: 95%;
+  max-width: 25rem;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+.control {
+  margin-bottom: 0.5rem;
+}
+
+.control label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #353336;
+  display: block;
+  font-size: 1.5rem;
+}
+
+.control input {
+  display: block;
+  font: inherit;
+  width: 100%;
+  border-radius: 1rem;
+  border: 1px solid #38015c;
+  padding: 0.5rem;
+  background-color: #f7f0fa;
+  margin: 1rem 0;
+}
+
+.action {
+  margin-top: 0.5rem;
+}
+
+.action button {
+  padding: 10px 24px;
+  font-size: 24px;
+  background-color: #22577e;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.action button:hover {
+  background-color: #540d83;
+  border-color: #540d83;
+}
+
+.action button.disabled {
+  pointer-events: none;
+  opacity: 0.6;
+  background-color: #5ee6eb;
+}
+
+p {
+  color: red;
+  margin: 0.15rem 0;
+}

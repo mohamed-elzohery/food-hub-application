@@ -18,7 +18,7 @@ form .form-action {
 form .form-action button {
   padding: 10px 24px;
   font-size: 24px;
-  background-color: darkblue;
+  background-color: #22577e;
   color: #fff;
   border: none;
   border-radius: 20px;
@@ -29,6 +29,17 @@ form .form-action button.disabled {
   pointer-events: none;
   opacity: 0.6;
   background-color: #5ee6eb;
+}
+.toggle {
+  margin-top: 1rem;
+  background-color: transparent;
+  color: #5ee6eb;
+  border: none;
+  padding: 0.15rem 0.5rem;
+}
+.toggle:hover {
+  background-color: transparent;
+  color: #ae82cc;
 }
 h1 {
   text-align: center;

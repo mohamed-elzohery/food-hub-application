@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import classes from "../styles/SignUpForm.module.css";
 import useInput from "../hooks/use-input";
 import FormGroup from "./FormGroup";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import AuthContext from "../storeTokens/Auth-Context";
 import axios from "axios";
 
@@ -31,7 +31,7 @@ const validateEmail = (val) => {
   return { isValid: true };
 };
 
-const validatePassword = (val) => {
+export const validatePassword = (val) => {
   let password = val.toString().trim().toLowerCase();
   if (password === "") return { isValid: false, msg: "Password is required" };
   if (password.length < 8)
@@ -43,7 +43,7 @@ const validatePassword = (val) => {
 };
 
 const SignUpForm = () => {
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
   const authCtx = useContext(AuthContext);
   let navigate = useNavigate();
 
@@ -95,6 +95,9 @@ const SignUpForm = () => {
     resetHandler: conresetPasswordHandler,
   } = useInput(validateconPassword);
 
+  const switchAuthModeHandler = () => {
+    setIsLogin((prevState) => !prevState);
+  };
   const onSumbitHandler = (e) => {
     e.preventDefault();
     console.log("Form is sumbitted successfully");
@@ -104,7 +107,25 @@ const SignUpForm = () => {
     conresetPasswordHandler();
 
     if (isLogin) {
-      //to be added
+      axios
+        .post(
+          "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCzTfDrGGGFjKW3KWnQHVSW6nq7P-F3DXU",
+          {
+            email: enteredEmail,
+            password: enteredPassword,
+            returnSecureToken: true,
+          }
+        )
+        .then((res) => {
+          authCtx.login(
+            res.data.idToken,
+            new Date(Date.now() + res.data.expiresIn * 1000)
+          );
+          navigate("/");
+        })
+        .catch((err) => {
+          alert(err.message);
+        });
     } else {
       axios
         .post(
@@ -117,7 +138,6 @@ const SignUpForm = () => {
           }
         )
         .then((res) => {
-          console.log(res);
           authCtx.login(
             res.data.idToken,
             new Date(Date.now() + res.data.expiresIn * 1000)
@@ -126,6 +146,8 @@ const SignUpForm = () => {
         })
         .catch((err) => {
           alert(err.message);
+          let errorMessage = "Authentication failed!";
+          throw new Error(errorMessage);
         });
 
       // fetch(
@@ -168,59 +190,88 @@ const SignUpForm = () => {
 
   return (
     <form onSubmit={onSumbitHandler} className={classes.form}>
-      <h1>Sign Up Form</h1>
+      <h1>{isLogin ? "Log in Form" : "Sign Up Form"}</h1>
+
+      {!isLogin ? (
+        <FormGroup
+          type="text"
+          name="Name"
+          valueChangedHandler={nameChangeHandler}
+          inputBlurHandler={nameBlurHandler}
+          enteredValue={enteredName}
+          inputHasError={nameInputHasError}
+          errMsg={nameErrMsg}
+        />
+      ) : (
+        ""
+      )}
       <FormGroup
         type="text"
-        name="name"
-        valueChangedHandler={nameChangeHandler}
-        inputBlurHandler={nameBlurHandler}
-        enteredValue={enteredName}
-        inputHasError={nameInputHasError}
-        errMsg={nameErrMsg}
-      />
-      <FormGroup
-        type="text"
-        name="email"
+        name="Email"
         valueChangedHandler={emailChangeHandler}
         inputBlurHandler={emailBlurHandler}
         enteredValue={enteredEmail}
         inputHasError={emailInputHasError}
         errMsg={emailErrMsg}
       />
+
       <FormGroup
         type="password"
-        name="password"
+        name="Password"
         valueChangedHandler={passwordChangeHandler}
         inputBlurHandler={passwordBlurHandler}
         enteredValue={enteredPassword}
         inputHasError={passwordInputHasError}
         errMsg={passwordErrMsg}
       />
-
-      <FormGroup
-        type="password"
-        name="Confim Password"
-        valueChangedHandler={conpasswordChangeHandler}
-        inputBlurHandler={conpasswordBlurHandler}
-        enteredValue={conenteredPassword}
-        inputHasError={conpasswordInputHasError}
-        errMsg={conpasswordErrMsg}
-      />
-      <p>
-        Already registerd?
-        <Link to="/login"> Login!</Link>
-      </p>
+      {!isLogin ? (
+        <FormGroup
+          type="password"
+          name="Confim Password"
+          valueChangedHandler={conpasswordChangeHandler}
+          inputBlurHandler={conpasswordBlurHandler}
+          enteredValue={conenteredPassword}
+          inputHasError={conpasswordInputHasError}
+          errMsg={conpasswordErrMsg}
+        />
+      ) : (
+        ""
+      )}
+      <div>
+        {isLogin ? "Not a registerd user?" : "Already a registered user?"}
+        {/* <Link to="/login"> Login!</Link> */}
+        <button
+          onClick={switchAuthModeHandler}
+          type="button"
+          className={classes.toggle}
+        >
+          {isLogin ? "Register" : "Login!"}
+        </button>
+      </div>
 
       <div className={classes["form-action"]}>
-        <button
-          className={`${
-            isEmailValid && isNameValid && isPasswordValid && conisPasswordValid
-              ? ""
-              : classes.disabled
-          }`}
-        >
-          SignUp
-        </button>
+        {isLogin ? (
+          <button
+            className={`${
+              isEmailValid && isPasswordValid ? "" : classes.disabled
+            }`}
+          >
+            {isLogin ? "Login" : "SignUp"}
+          </button>
+        ) : (
+          <button
+            className={`${
+              isEmailValid &&
+              isNameValid &&
+              isPasswordValid &&
+              conisPasswordValid
+                ? ""
+                : classes.disabled
+            }`}
+          >
+            {isLogin ? "Login" : "SignUp"}
+          </button>
+        )}
       </div>
     </form>
   );
