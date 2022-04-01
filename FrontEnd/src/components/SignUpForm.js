@@ -195,7 +195,7 @@ const SignUpForm = () => {
       {!isLogin ? (
         <FormGroup
           type="text"
-          name="name"
+          name="Name"
           valueChangedHandler={nameChangeHandler}
           inputBlurHandler={nameBlurHandler}
           enteredValue={enteredName}
@@ -207,7 +207,7 @@ const SignUpForm = () => {
       )}
       <FormGroup
         type="text"
-        name="email"
+        name="Email"
         valueChangedHandler={emailChangeHandler}
         inputBlurHandler={emailBlurHandler}
         enteredValue={enteredEmail}
@@ -217,7 +217,7 @@ const SignUpForm = () => {
 
       <FormGroup
         type="password"
-        name="password"
+        name="Password"
         valueChangedHandler={passwordChangeHandler}
         inputBlurHandler={passwordBlurHandler}
         enteredValue={enteredPassword}
