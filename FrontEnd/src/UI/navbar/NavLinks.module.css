@@ -1,0 +1,34 @@
+.navlinks{
+    list-style: none;
+}
+
+
+.counter{
+    margin-left: auto;
+    font-size: 1.6rem;
+}
+
+.cartbtn{
+    display: flex;
+}
+
+.carticon{
+    margin-left: 1rem;
+    position: relative;
+}
+
+.counter{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -.5rem;
+    right: -1rem;
+    background-color: var(--primary-color-dark);
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    color: #FFF;
+    font-size: 1.25rem;
+}
+
