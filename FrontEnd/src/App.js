@@ -18,7 +18,7 @@ function App() {
         <Routes>
           <Route path="/home" element={<Blank />} />
           <Route path="/" element={<Blank />} />
-          {isLoggedIn && <Route path="profile" element={<Profile />} />}
+          {isLoggedIn && <Route path="/profile" element={<Profile />} />}
           {!isLoggedIn && <Route path="/auth" element={<SignUpForm />} />}
           <Route path="*" element={<Error />} />
         </Routes>

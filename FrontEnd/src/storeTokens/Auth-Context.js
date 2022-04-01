@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { useCookies } from "react-cookie";
 
+// AuthContext object contains component
+// state and methods to update component state.
+// This object is passed to all components that need to access it.
+//its only for a better ide auto completetion.
 const AuthContext = React.createContext({
   token: "",
   isLoggedIn: false,
