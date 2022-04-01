@@ -20,14 +20,14 @@ function Home() {
             </li>
             {!isLoggedIn && (
               <li>
-                <NavLink to="/signup">Signup</NavLink>
+                <NavLink to="/auth">Signup/Login</NavLink>
               </li>
             )}
-            {!isLoggedIn && (
+            {/* {!isLoggedIn && (
               <li>
                 <NavLink to="/login">Login</NavLink>
               </li>
-            )}
+            )} */}
             {isLoggedIn && (
               <li>
                 <button onClick={logoutHandler}>Logout</button>

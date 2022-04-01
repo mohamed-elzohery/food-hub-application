@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import SignUpForm from "./components/SignUpForm";
-import LoginForm from "./components/LoginForm";
 import Home from "./components/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AuthContext from "./storeTokens/Auth-Context";
@@ -18,8 +17,7 @@ function App() {
         <Routes>
           <Route path="/home" element={<Blank />} />
           <Route path="/" element={<Blank />} />
-          {!isLoggedIn && <Route path="/login" element={<LoginForm />} />}
-          {!isLoggedIn && <Route path="/Signup" element={<SignUpForm />} />}
+          {!isLoggedIn && <Route path="/auth" element={<SignUpForm />} />}
           <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>
