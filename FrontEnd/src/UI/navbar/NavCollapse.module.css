@@ -1,0 +1,25 @@
+.collapse{
+    border: 2px solid var(--primary-color-dark);
+    padding: 1.5rem .75rem;
+    display: none;
+    flex-direction: column;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.bar{
+    width: 4rem;
+    height: .2rem;
+    background-color: var(--primary-color-dark);
+}
+
+.bar:not(:last-child){
+    margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 40em) {
+    .collapse{
+        display: flex;
+        margin-left: auto;
+    }
+}

@@ -1,0 +1,18 @@
+.logobox{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 2rem;
+}
+
+.logobox img{
+    width: 6rem;
+}
+
+.logobox h1{
+    margin-left: 1rem;
+    color: var(--primary-color-dark);
+    font-size: 6rem;
+    text-transform: none;
+    font-family: 'The Simple Sweet Serif';
+}

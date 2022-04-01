@@ -1,0 +1,13 @@
+.meals{
+    padding: 10rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.meals h2{
+    text-align: center;
+    color: var(--sec-color-dark);
+    font-size: 10rem;
+    margin-bottom: 5rem;
+}

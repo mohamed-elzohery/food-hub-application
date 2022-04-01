@@ -2,13 +2,18 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import { AuthContextProvider } from "./storeTokens/Auth-Context";
 import { CookiesProvider } from "react-cookie";
+import { BrowserRouter } from "react-router-dom";
+import store from "./storeTokens/Auth-Context";
+import { Provider } from "react-redux";
+
 ReactDOM.render(
-  <AuthContextProvider>
-    <CookiesProvider>
-      <App />
-    </CookiesProvider>
-  </AuthContextProvider>,
+  <BrowserRouter>
+    <Provider store={store}>
+      <CookiesProvider>
+        <App />
+      </CookiesProvider>
+    </Provider>
+  </BrowserRouter>,
   document.getElementById("root")
 );

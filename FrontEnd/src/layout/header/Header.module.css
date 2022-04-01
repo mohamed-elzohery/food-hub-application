@@ -1,0 +1,57 @@
+.header{
+    margin-top: 10rem;
+    height: calc(100vh - 10rem);
+    overflow: hidden;
+    position: relative;
+}
+
+.header img {
+    filter: drop-shadow(2px 2px 5px rgb(0 0 0 / 0.5));
+}
+
+.textbox{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.textbox h1{
+    color: #FFF;
+    font-size: 15rem;
+    font-family: 'The Simple Sweet Serif';
+    animation: appearFromLeft 1s ;
+}
+
+.textbox p{
+    color: #FFF;
+    max-width: 50rem;
+    margin: 3rem auto 0;
+    font-family: 'The Simple Sweet';
+    font-size: 4rem;
+    animation: appearFromBottom 1s .5s backwards;
+}
+
+@keyframes appearFromLeft {
+    0%{
+        transform: translateX(-30%);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes appearFromBottom {
+    0%{
+        transform: translateY(50%);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

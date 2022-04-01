@@ -1,14 +1,17 @@
-import React, { useContext } from "react";
+import React from "react";
 import "../styles/Home.module.css";
-import { NavLink } from "react-router-dom";
-import AuthContext from "../storeTokens/Auth-Context";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../storeTokens/Auth-Context";
 
 function Home() {
-  const authCtx = useContext(AuthContext);
-  const isLoggedIn = authCtx.isLoggedIn;
+  const navigate = useNavigate();
+  const isLoggedIn = useSelector((state) => state.isLoggedIn);
+  const dispatch = useDispatch();
 
   const logoutHandler = () => {
-    authCtx.logout();
+    dispatch(logout());
+    navigate("/");
   };
   return (
     <>
@@ -23,21 +26,15 @@ function Home() {
                 <NavLink to="/auth">Signup/Login</NavLink>
               </li>
             )}
-            {isLoggedIn && (
+            {/* to change pw , uncomment if you want to implement it */}
+            {/* {isLoggedIn && (
               <li>
                 <NavLink to="/profile">Profile</NavLink>
               </li>
-            )}
-            {/* {!isLoggedIn && (
-              <li>
-                <NavLink to="/login">Login</NavLink>
-              </li>
             )} */}
-            {isLoggedIn && (
-              <li>
-                <button onClick={logoutHandler}>Logout</button>
-              </li>
-            )}
+            <li>
+              <button onClick={logoutHandler}>Logout</button>
+            </li>
           </ul>
         </div>
       </header>

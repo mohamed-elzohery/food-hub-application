@@ -1,0 +1,23 @@
+.sidebar{
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #fff;
+    width: 50rem;
+    height: 100%;
+    z-index: 200;
+}
+
+.sidelinks{
+    display: flex;
+    flex-direction: column;
+}
+
+.sidelinks > li{
+    margin-top: 2rem;
+    border-top: 1px solid var(--grey-light);
+}
+
+.sidelinks > li > a{
+    padding: 2rem 12rem 0 2rem;
+}
