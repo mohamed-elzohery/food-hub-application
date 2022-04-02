@@ -9,18 +9,32 @@ import { useNavigate } from "react-router-dom";
 const NavLinks = (props) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const isLoggedIn = useSelector((state) => state.isLoggedIn);
+  const isLoggedIn = useSelector((state) => state.auth.isLoggined);
 
-  const logoutHandler = () => {
+  const logoutHandler = (event) => {
+    event.preventDefault();
     dispatch(logout());
     navigate("/");
     console.log("logout");
   };
+  const loginHandler = (event) => {
+    event.preventDefault();
+    navigate("/auth");
+  };
+
+  const registerHandler = (event) => {
+    event.preventDefault();
+    navigate("/auth");
+  };
 
   return (
-    <ui className={`${props.navlinksStyles} ${classes.navlinks}`}>
-      <NavBarLink>Login</NavBarLink>
-      <NavBarLink>Register</NavBarLink>
+    <ul className={`${props.navlinksStyles} ${classes.navlinks}`}>
+      {!isLoggedIn && (
+        <NavBarLink onClickHander={loginHandler}>Login</NavBarLink>
+      )}
+      {!isLoggedIn && (
+        <NavBarLink onClickHander={registerHandler}>Register</NavBarLink>
+      )}
       <NavBarLink>Meals</NavBarLink>
       <NavBarLink>
         My Cart{" "}
@@ -29,8 +43,10 @@ const NavLinks = (props) => {
           <span className={classes.counter}>0</span>
         </span>
       </NavBarLink>
-      <button onClick={logoutHandler}>logout</button>
-    </ui>
+      {isLoggedIn && (
+        <NavBarLink onClickHander={logoutHandler}>Logout</NavBarLink>
+      )}
+    </ul>
   );
 };
 

@@ -4,6 +4,24 @@ import Cookies from "universal-cookie";
 const cookies = new Cookies();
 const eksde = cookies.get("token");
 
+const intialLoginState = {
+  isLogin: true,
+};
+const loginSlice = createSlice({
+  name: "login",
+  initialState: intialLoginState,
+  reducers: {
+    loginAction: (state) => {
+      state.isLogin = true;
+    },
+    logoutAction: (state) => {
+      state.isLogin = false;
+    },
+    toggleLoginAction: (state) => {
+      state.isLogin = !state.isLogin;
+    },
+  },
+});
 const initialAuthState = {
   token: "",
   isLoggined: !!eksde,
@@ -30,7 +48,13 @@ const authSlice = createSlice({
   },
 });
 const store = configureStore({
-  reducer: authSlice.reducer,
+  reducer: {
+    login: loginSlice.reducer,
+    auth: authSlice.reducer,
+  },
 });
+
 export const { setToken, login, logout, setIsLoggedIn } = authSlice.actions;
+export const { loginAction, logoutAction, toggleLoginAction } =
+  loginSlice.actions;
 export default store;
