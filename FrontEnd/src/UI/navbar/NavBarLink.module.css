@@ -14,19 +14,6 @@
     align-items: center;
     justify-content: space-between;
 }
-/* 
-.navitem::before{
-    content: "";
-    position: absolute;
-    width: 10%;
-    background-color: var(--primary-color-dark);
-    bottom: 0;
-    left: 0;
-    height: .2rem;
-    transition: width .3s ease-out;
-}
-.navitem:hover::before{
-    width: 100%;
-} */
+
 
 

@@ -1,21 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classes from './Meal.module.css';
 import MealImg from './meal.jpg'
+import { useDispatch } from 'react-redux';
+import { CartActions } from '../../slices/Cart-slice';
 
-const Meal = () => {
+const Meal = (props) => {
+    const [amount, setAmount] = useState(0);
+    const {title, desc, id, price} = props;
+    const dispatch = useDispatch();
+
+    const onIncHandler = () => {
+        setAmount(amount + 1);
+    }
+
+    const onDecHandler = () => {
+        setAmount(amount - 1);
+    }
+
+    const onAddHandler = () => {
+        dispatch(CartActions.addItem({id, title, desc, amount, price}));
+    }
+
     return <div className={classes.meal}>
         <img src={MealImg} alt='meal'/>
         <div className={classes.textbox}>
-            <h3>Meal Title</h3>
-            <p>This is a very delicious meal you find it in this store we get it for you hot and fresh order it now.</p>
+            <h3>{title}</h3>
+            <p>{desc}</p>
+            <p className={classes.price}>Price: <span>{`${price.toFixed(2)}`}</span> LE</p>
         </div>
         <div className={classes.counter}>
-            <input disabled type='number' value='0'/>
+            <input className={!amount ? classes.reset : ''} disabled type='number' value={amount}/>
             <div className={classes.controls}>
-                <button>-</button>
-                <button>+</button>
+                <button onClick={onDecHandler} disabled={!amount} className={`${!amount ? classes.disabled : ''}`}>-</button>
+                <button onClick={onIncHandler}>+</button>
             </div>
-            <button className={classes.orderbtn}>Add To Cart</button>
+            <button className={`${classes.orderbtn} ${!amount ? classes.disabled : ''}`} onClick={onAddHandler} disabled={!amount}>Add To Cart</button>
         </div>
     </div>
 }

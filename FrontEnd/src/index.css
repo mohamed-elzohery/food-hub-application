@@ -23,6 +23,9 @@ button{
 }
 
 
+body::-webkit-scrollbar {
+  display: none;
+}
 
 body{
   position: relative;
@@ -51,6 +54,8 @@ body{
 html{
   font-size: 62.5%;
 }
+
+
 
 /*tab-landscape*/
 @media only screen and (max-width: 75em) {

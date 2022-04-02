@@ -14,6 +14,7 @@ export const AuthContextProvider = (props) => {
 
   //to reverse falsey & true values to booleans
   const userIsLoggedIn = !!token;
+  
   const loginHandler = (token, expirationData) => {
     setToken(token);
     setCookie("token", token, { path: "/", expires: expirationData });

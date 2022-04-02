@@ -1,0 +1,79 @@
+.checkout{
+    min-width: 60rem;
+}
+
+.checkout-controls{
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.checkout-controls button{
+    padding: 1rem 3rem;
+    font-size: 2rem;
+    border-radius: 2rem;
+    transition: all .3s ease-out;
+}
+
+.checkout-controls .order{
+    margin-right: 1rem;
+    border: 2px solid var(--sec-color-dark);
+    color: var(--sec-color-dark);
+}
+
+.checkout-controls .cancel{
+    border: 2px solid var(--primary-color-dark);
+    color: #FFF;
+    background-color: var(--primary-color-dark);
+}
+
+.checkout-controls .order:hover{
+    background-color: var(--sec-color-dark);
+    color: #FFF;
+
+}
+
+.price-pane{
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-family: 'The Simple Sweet Serif';
+    font-size: 6rem;
+
+}
+.price-pane h4{
+    font-size: 6rem;
+}
+
+.price-pane p{
+    color: var(--primary-color-dark);
+}
+
+
+.checkout h2{
+    font-size: 10rem;
+    color: var(--sec-color-dark);
+    text-align: center;
+}
+
+.no-item-txt{
+        
+}
+
+.cart-items{
+    min-height: 30rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-height: 40rem;
+    min-width: 50rem;
+    overflow-y: scroll;
+}
+.cart-items::-webkit-scrollbar {
+    display: none;
+  }
+
+
+
+/* TEMP */
