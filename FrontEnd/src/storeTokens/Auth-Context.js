@@ -14,7 +14,10 @@ const authSlice = createSlice({
   reducers: {
     setToken: (state, action) => {
       state.token = action.payload;
-      cookies.set("token", state.token, { path: "/" });
+      cookies.set("token", state.token, {
+        path: "/",
+        expires: new Date(Date.now() + 3600 * 1000),
+      });
     },
     login: (state) => {
       state.isLoggined = true;

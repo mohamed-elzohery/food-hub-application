@@ -118,7 +118,6 @@ const SignUpForm = () => {
           }
         )
         .then((res) => {
-          console.log(res);
           dispatch(setToken(res.data.idToken));
           dispatch(login());
           navigate("/");
@@ -137,7 +136,11 @@ const SignUpForm = () => {
             returnSecureToken: true,
           }
         )
-        .then((res) => {})
+        .then((res) => {
+          dispatch(setToken(res.data.idToken));
+          dispatch(login());
+          navigate("/");
+        })
         .catch((err) => {
           alert(err.message);
         });
