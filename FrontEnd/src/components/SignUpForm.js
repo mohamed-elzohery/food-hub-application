@@ -1,9 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import classes from "../styles/SignUpForm.module.css";
 import useInput from "../hooks/use-input";
 import FormGroup from "./FormGroup";
 import { useNavigate } from "react-router-dom";
-import AuthContext from "../storeTokens/Auth-Context";
+import { useDispatch } from "react-redux";
+import { setToken, login } from "../storeTokens/Auth-Context";
 import axios from "axios";
 
 const emailRegex =
@@ -44,7 +45,7 @@ export const validatePassword = (val) => {
 
 const SignUpForm = () => {
   const [isLogin, setIsLogin] = useState(true);
-  const authCtx = useContext(AuthContext);
+  const dispatch = useDispatch();
   let navigate = useNavigate();
 
   const {
@@ -117,10 +118,8 @@ const SignUpForm = () => {
           }
         )
         .then((res) => {
-          authCtx.login(
-            res.data.idToken,
-            new Date(Date.now() + res.data.expiresIn * 1000)
-          );
+          dispatch(setToken(res.data.idToken));
+          dispatch(login());
           navigate("/");
         })
         .catch((err) => {
@@ -138,53 +137,13 @@ const SignUpForm = () => {
           }
         )
         .then((res) => {
-          authCtx.login(
-            res.data.idToken,
-            new Date(Date.now() + res.data.expiresIn * 1000)
-          );
+          dispatch(setToken(res.data.idToken));
+          dispatch(login());
           navigate("/");
         })
         .catch((err) => {
           alert(err.message);
-          let errorMessage = "Authentication failed!";
-          throw new Error(errorMessage);
         });
-
-      // fetch(
-      //   "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCzTfDrGGGFjKW3KWnQHVSW6nq7P-F3DXU",
-      //   {
-      //     method: "POST",
-      //     body: JSON.stringify({
-      //       email: enteredEmail,
-      //       password: enteredPassword,
-      //       returnSecureToken: true,
-      //     }),
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //     },
-      //   }
-      // )
-      //   .then((res) => {
-      //     if (res.ok) {
-      //       return res.json();
-      //     } else {
-      //       return res.json().then((data) => {
-      //         let errorMessage = "Authentication failed!";
-      //         throw new Error(errorMessage);
-      //       });
-      //     }
-      //   })
-      //   .then((data) => {
-      //     authCtx.login(
-      //       data.idToken,
-      //       new Date(Date.now() + data.expiresIn * 1000)
-      //     );
-      //     // useNavigate("/");
-      //     // history.replace("/");
-      //   })
-      //   .catch((err) => {
-      //     alert(err.message);
-      //   });
     }
   };
 
@@ -239,7 +198,6 @@ const SignUpForm = () => {
       )}
       <div>
         {isLogin ? "Not a registerd user?" : "Already a registered user?"}
-        {/* <Link to="/login"> Login!</Link> */}
         <button
           onClick={switchAuthModeHandler}
           type="button"

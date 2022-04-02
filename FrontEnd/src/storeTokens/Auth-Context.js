@@ -1,40 +1,60 @@
-import React, { useState } from "react";
-import { useCookies } from "react-cookie";
+import { createSlice, configureStore } from "@reduxjs/toolkit";
+import Cookies from "universal-cookie";
 
-const AuthContext = React.createContext({
+const cookies = new Cookies();
+const eksde = cookies.get("token");
+
+const intialLoginState = {
+  isLogin: true,
+};
+const loginSlice = createSlice({
+  name: "login",
+  initialState: intialLoginState,
+  reducers: {
+    loginAction: (state) => {
+      state.isLogin = true;
+    },
+    logoutAction: (state) => {
+      state.isLogin = false;
+    },
+    toggleLoginAction: (state) => {
+      state.isLogin = !state.isLogin;
+    },
+  },
+});
+const initialAuthState = {
   token: "",
-  isLoggedIn: false,
-  login: (token) => {},
-  logout: () => {},
+  isLoggined: !!eksde,
+};
+const authSlice = createSlice({
+  name: "auth",
+  initialState: initialAuthState,
+  reducers: {
+    setToken: (state, action) => {
+      state.token = action.payload;
+      cookies.set("token", state.token, {
+        path: "/",
+        expires: new Date(Date.now() + 3600 * 1000),
+      });
+    },
+    login: (state) => {
+      state.isLoggined = true;
+    },
+    logout: (state) => {
+      state.token = null;
+      state.isLoggined = false;
+      cookies.remove("token", { path: "/" });
+    },
+  },
+});
+const store = configureStore({
+  reducer: {
+    login: loginSlice.reducer,
+    auth: authSlice.reducer,
+  },
 });
 
-export const AuthContextProvider = (props) => {
-  const [cookies, setCookie, removeCookie] = useCookies(["token"]);
-  const [token, setToken] = useState(cookies.token);
-
-  //to reverse falsey & true values to booleans
-  const userIsLoggedIn = !!token;
-  
-  const loginHandler = (token, expirationData) => {
-    setToken(token);
-    setCookie("token", token, { path: "/", expires: expirationData });
-  };
-  const logoutHandler = () => {
-    setToken(null);
-    removeCookie("token");
-  };
-
-  const contextValue = {
-    token: token,
-    isLoggedIn: userIsLoggedIn,
-    login: loginHandler,
-    logout: logoutHandler,
-  };
-
-  return (
-    <AuthContext.Provider value={contextValue}>
-      {props.children}
-    </AuthContext.Provider>
-  );
-};
-export default AuthContext;
+export const { setToken, login, logout, setIsLoggedIn } = authSlice.actions;
+export const { loginAction, logoutAction, toggleLoginAction } =
+  loginSlice.actions;
+export default store;

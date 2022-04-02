@@ -5,8 +5,11 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import AuthContext from "./storeTokens/Auth-Context";
 import Error from "./components/Error";
 import Home from "./pages/Home";
-import Header from "./layout/header/Header";
-import SideBar from "./UI/sidebar/SideBar";
+import { Navigate, Route, Routes } from "react-router-dom";
+import Error from "./components/Error";
+//uncomment if you want to change user pw
+// import Profile from "./components/Profile";
+import NavBar from "./UI/navbar/NavBar";
 import Footer from "./layout/footer/Footer";
 import Cart from "./components/cart/Cart";
 import { useSelector } from "react-redux";
