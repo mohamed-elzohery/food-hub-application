@@ -1,13 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import AuthContext from "../storeTokens/Auth-Context";
 import classes from "../styles/ProfileForm.module.css";
 import { validatePassword } from "./SignUpForm";
 import useInput from "../hooks/use-input";
 import axios from "axios";
 
 function ProfileForm() {
-  const authCtx = useContext(AuthContext);
   const navigate = useNavigate();
 
   const {
@@ -46,7 +44,7 @@ function ProfileForm() {
       .post(
         "https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyCzTfDrGGGFjKW3KWnQHVSW6nq7P-F3DXU",
         {
-          idToken: authCtx.token,
+          // idToken: authCtx.token,
           password: enteredPassword,
           returnSecureToken: false,
         }

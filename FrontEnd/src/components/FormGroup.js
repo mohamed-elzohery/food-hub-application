@@ -11,6 +11,7 @@ const FormGroup = (props) => {
     inputHasError,
     errMsg,
   } = props;
+
   return (
     <div
       className={`${classes["form-control"]} ${

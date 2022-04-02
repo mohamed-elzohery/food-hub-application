@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import classes from "../styles/SignUpForm.module.css";
 import useInput from "../hooks/use-input";
 import FormGroup from "./FormGroup";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { setToken, login } from "../storeTokens/Auth-Context";
+import { useDispatch, useSelector } from "react-redux";
+import { setToken, login } from "../slices/Auth-slice";
+import { toggleLoginAction } from "../slices/Login-State-slice";
 import axios from "axios";
 
 const emailRegex =
@@ -44,7 +45,7 @@ export const validatePassword = (val) => {
 };
 
 const SignUpForm = () => {
-  const [isLogin, setIsLogin] = useState(true);
+  const isLogin = useSelector((state) => state.login.isLogin);
   const dispatch = useDispatch();
   let navigate = useNavigate();
 
@@ -97,7 +98,7 @@ const SignUpForm = () => {
   } = useInput(validateconPassword);
 
   const switchAuthModeHandler = () => {
-    setIsLogin((prevState) => !prevState);
+    dispatch(toggleLoginAction());
   };
   const onSumbitHandler = (e) => {
     e.preventDefault();
