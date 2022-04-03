@@ -1,0 +1,62 @@
+[
+    {
+        "title": "Pizza",
+        "desc": "Fast food you can order with Pepsi or Coca-Cola. It is hot and fresh.",
+        "price": 24,
+        "photo" : "http://localhost:8000/photo1.jpg"
+    },
+    {
+        "title": "Fruit Salad",
+        "desc": "Fruit salad consists of Bananas, Strewberry and oranges. Healty and fresh food.",
+        "price": 10,
+        "photo" : "http://localhost:8000/photo2.jpg"
+    },
+    {
+        "title": "Fried Chicken",
+        "desc": "Fast food you can order with Pepsi or Coca-Cola. It is hot and fresh. it comes with bread or rice.",
+        "price": 20,
+        "photo" : "http://localhost:8000/photo3.jpg"
+    },
+    {
+        "title": "Meat Pie",
+        "desc": "Oriental food of great taste and flavor you can order it with different sizes and additives.",
+        "price": 17,
+        "photo" : "http://localhost:8000/photo4.jpg"
+    },
+    {
+        "title": "Pepsi Machine",
+        "desc": "Ofcourse not the machine itself it is pepsi from the machine",
+        "price": 6,
+        "photo" : "http://localhost:8000/photo5.jpg"
+    },
+    {
+        "title": "Meat Burger",
+        "desc": "Giant burger of 150 gms you can order it with fries and ketchup it is better than mac",
+        "price": 30,
+        "photo" : "http://localhost:8000/photo6.jpg"
+    },
+    {
+        "title": "Apple Pie",
+        "desc": "Tastsy apple pie with a lot of flavours. You can order it as part of your desert.",
+        "price": 14,
+        "photo" : "http://localhost:8000/photo7.jpg"
+    },
+    {
+        "title": "Pasta",
+        "desc": "The famous italian food loved by many we bring it to you with white or red sauce.",
+        "price": 12,
+        "photo" : "http://localhost:8000/photo8.jpg"
+    },
+    {
+        "title": "Meat Balls",
+        "desc": "Local food comes with pasta or rice. You can try it with spices of your choices.",
+        "price": 18,
+        "photo" : "http://localhost:8000/photo9.jpg"
+    },
+    {
+        "title": "Sea food Soup",
+        "desc": "Fish lovers will admire this fish it comes with a mixture of shrimps and tuna pieces.",
+        "price": 44,
+        "photo" : "http://localhost:8000/photo10.jpg"
+    }
+]

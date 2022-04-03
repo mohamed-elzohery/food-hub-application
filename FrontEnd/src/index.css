@@ -33,11 +33,7 @@ body::-webkit-scrollbar {
 body {
   position: relative;
   box-sizing: border-box;
-<<<<<<< HEAD
   font-family: 'BubblegumSans';
-=======
-  font-family: "Jonesy";
->>>>>>> 45cbe1cc9bc815c0d7992c73072f4e7fc635b5cc
 }
 
 /* CSS Variabels */
@@ -111,13 +107,6 @@ html {
 }
 
 @font-face {
-<<<<<<< HEAD
   font-family: 'BubblegumSans';
   src: local('BubblegumSans'), url(./fonts/BubblegumSans/BubblegumSans-Regular.ttf) format('truetype');
 }
-=======
-  font-family: "Jonesy";
-  src: local("Jonesy"),
-    url(./fonts/Jonesy/Jonesy\ Script.ttf) format("truetype");
-}
->>>>>>> 45cbe1cc9bc815c0d7992c73072f4e7fc635b5cc

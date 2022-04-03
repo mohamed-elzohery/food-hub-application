@@ -92,8 +92,10 @@ const OrderForm = () => {
         dispatch(UIActions.closeOrder());
     }
 
-    const onSumbitHandler = () => {
-
+    const onSumbitHandler = (e) => {
+        e.preventDefault();
+        //Post request
+        
     }
 
     return<div className={classes['order-section']}>
