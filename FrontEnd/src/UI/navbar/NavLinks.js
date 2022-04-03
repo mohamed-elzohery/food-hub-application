@@ -1,31 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-import NavBarLink from './NavBarLink';
-import classes from './NavLinks.module.css';
-import { ReactComponent as CartSVG } from './cart-icon.svg';
-import { useDispatch, useSelector } from 'react-redux';
-import { UIActions } from '../../slices/UI-slice';
-
-const NavLinks = (props) => {
-    const cartAmount = useSelector(state => state.cart.cartCount);
-    const dispatch = useDispatch();
-    const openCart = (e) => {
-        e.preventDefault();
-        console.log("Cart will be opened soon");
-        dispatch(UIActions.openCart());
-    }
-
-    return (
-        <ul className={`${props.navlinksStyles} ${classes.navlinks}`}>
-            <NavBarLink path='/login'>Login</NavBarLink>
-            <NavBarLink>Register</NavBarLink>
-            <NavBarLink>Home</NavBarLink>
-            <NavBarLink onClickHandler={openCart}>My Cart <span className={classes.carticon}><CartSVG /><span className={classes.counter}>{cartAmount}</span></span></NavBarLink>
-            <NavBarLink>logout</NavBarLink>
-        </ul>
-    )
-}
-=======
 import React from "react";
 import NavBarLink from "./NavBarLink";
 import classes from "./NavLinks.module.css";
@@ -33,12 +5,18 @@ import { ReactComponent as CartSVG } from "./cart-icon.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../storeTokens/Auth-Context";
 import { useNavigate } from "react-router-dom";
+import { UIActions } from "../../slices/UI-slice";
 
 const NavLinks = (props) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const isLoggedIn = useSelector((state) => state.auth.isLoggined);
->>>>>>> a601112a9272fbbde3fb0d51bf2ed71c7ce83d49
+  const cartCount = useSelector(state => state.cart.cartCount);
+  const isLoggedIn = true;
+
+  const openCartHandler = (e) => {
+    e.preventDefault();
+    dispatch(UIActions.openCart());
+  }
 
   const logoutHandler = (event) => {
     event.preventDefault();
@@ -59,21 +37,21 @@ const NavLinks = (props) => {
   return (
     <ul className={`${props.navlinksStyles} ${classes.navlinks}`}>
       {!isLoggedIn && (
-        <NavBarLink onClickHander={loginHandler}>Login</NavBarLink>
+        <NavBarLink onClickHandler={loginHandler}>Login</NavBarLink>
       )}
       {!isLoggedIn && (
-        <NavBarLink onClickHander={registerHandler}>Register</NavBarLink>
+        <NavBarLink onClickHandler={registerHandler}>Register</NavBarLink>
       )}
       <NavBarLink>Meals</NavBarLink>
-      <NavBarLink>
-        My Cart{" "}
+      <NavBarLink onClickHandler={openCartHandler}>
+        My Cart
         <span className={classes.carticon}>
           <CartSVG />
-          <span className={classes.counter}>0</span>
+          <span className={classes.counter}>{cartCount}</span>
         </span>
       </NavBarLink>
       {isLoggedIn && (
-        <NavBarLink onClickHander={logoutHandler}>Logout</NavBarLink>
+        <NavBarLink onClickHandler={logoutHandler}>Logout</NavBarLink>
       )}
     </ul>
   );
