@@ -11,7 +11,7 @@ const emailRegex =
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const usernameRegex = /^[A-Za-z]\w*$/;
 
-const validateName = (val) => {
+export const validateName = (val) => {
   let name = val.toString().trim();
   if (name === "") return { isValid: false, msg: "Name is required" };
   if (name.length < 3)
@@ -24,7 +24,7 @@ const validateName = (val) => {
   return { isValid: true };
 };
 
-const validateEmail = (val) => {
+export const validateEmail = (val) => {
   let email = val.toString().trim().toLowerCase();
   if (email === "") return { isValid: false, msg: "Email is required" };
   if (!email.match(emailRegex))

@@ -30,7 +30,7 @@ body::-webkit-scrollbar {
 body{
   position: relative;
   box-sizing: border-box;
-  font-family: 'Jonesy';
+  font-family: 'BubblegumSans';
 }
 
 /* CSS Variabels */
@@ -102,6 +102,6 @@ html{
 }
 
 @font-face {
-  font-family: 'Jonesy';
-  src: local('Jonesy'), url(./fonts/Jonesy/Jonesy\ Script.ttf) format('truetype');
+  font-family: 'BubblegumSans';
+  src: local('BubblegumSans'), url(./fonts/BubblegumSans/BubblegumSans-Regular.ttf) format('truetype');
 }
