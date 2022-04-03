@@ -26,7 +26,7 @@
   border-radius: 5px;
   border: 1px solid var(--grey-dark);
   font-size: 20px;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   outline: 0;
   height: 6rem;
@@ -36,7 +36,7 @@
   border: 1px solid var(--primary-color-light);
 }
 
-.form-control.invalid input::placeholder{
+.form-control.invalid input::placeholder {
   color: var(--grey-dark);
   text-transform: capitalize;
 }

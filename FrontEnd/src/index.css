@@ -33,7 +33,7 @@ body::-webkit-scrollbar {
 body {
   position: relative;
   box-sizing: border-box;
-  font-family: "Jonesy";
+  font-family: "BubblegumSans";
 }
 
 /* CSS Variabels */
@@ -104,4 +104,10 @@ html {
   font-family: "Roboto";
   src: local("Roboto"),
     url(./fonts//Roboto/Roboto-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "BubblegumSans";
+  src: local("BubblegumSans"),
+    url(./fonts/BubblegumSans/BubblegumSans-Regular.ttf) format("truetype");
 }

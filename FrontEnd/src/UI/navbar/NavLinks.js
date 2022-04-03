@@ -24,7 +24,6 @@ const NavLinks = (props) => {
     event.preventDefault();
     dispatch(logout());
     navigate("/");
-    console.log("logout");
   };
   const loginHandler = (event) => {
     event.preventDefault();

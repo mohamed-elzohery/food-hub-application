@@ -149,7 +149,7 @@ const SignUpForm = () => {
   };
 
   return (
-    <form onSubmit={onSumbitHandler} className={classes.form}>
+    <form onSubmit={onSumbitHandler} className={classes["order-form"]}>
       <h1>{isLogin ? "Log in Form" : "Sign Up Form"}</h1>
 
       {!isLogin ? (
@@ -197,16 +197,12 @@ const SignUpForm = () => {
       ) : (
         ""
       )}
-      <div>
+      <p className={classes["question"]}>
         {isLogin ? "Not a registerd user?" : "Already a registered user?"}
-        <button
-          onClick={switchAuthModeHandler}
-          type="button"
-          className={classes.toggle}
-        >
+        <button onClick={switchAuthModeHandler} type="button">
           {isLogin ? "Register" : "Login!"}
         </button>
-      </div>
+      </p>
 
       <div className={classes["form-action"]}>
         {isLogin ? (

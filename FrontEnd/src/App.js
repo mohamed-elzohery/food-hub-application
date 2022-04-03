@@ -18,7 +18,6 @@ function App() {
   const isLoggedIn = useSelector((state) => state.auth.isLoggined);
   return (
     <div className="App">
-      <NavBar />
       <Header />
       {isSidebarShown && <SideBar />}
       {isCartOpen && <Cart />}

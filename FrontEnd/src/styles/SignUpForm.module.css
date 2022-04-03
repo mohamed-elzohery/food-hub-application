@@ -1,5 +1,5 @@
-/* form {
-  max-width: 600px;
+.order-form {
+  max-width: 1200px;
   margin: 20rem auto;
   padding: 12px 30px;
   border: 1px solid #000;
@@ -8,39 +8,62 @@
   border-radius: 20px;
 }
 
+.order-form h1 {
+  font-size: 10rem;
+  color: var(--sec-color-dark);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.order-form .question {
+  font-size: 3rem;
+  color: var(--sec-color-regular);
+  margin-bottom: 2rem;
+}
+.order-form .question button {
+  font-size: 3rem;
+  color: var(--sec-color-dark);
+  margin: 0 1rem;
+  font-family: "BubblegumSans";
+  outline: none;
+  border-radius: 0.5rem;
+  background-color: var(--sec-color-light);
+  padding: 0.5rem 1rem;
+  border: none;
+}
+.order-form .question button:hover {
+  background-color: var(--sec-color-dark);
+  color: #fff;
+}
+.form-action .disabled {
+  opacity: 0.4;
+  border: none;
+  pointer-events: none;
+  font-size: 5rem;
+  font-family: "BubblegumSans";
+  background-color: var(--grey-dark);
+  border-radius: 0.5rem;
+  color: #fff;
+  padding: 0.5rem 1rem;
+}
+.form-action button {
+  font-size: 5rem;
+  color: var(--sec-color-dark);
+  margin: 0 1rem;
+  font-family: "BubblegumSans";
+  outline: none;
+  border-radius: 0.5rem;
+  background-color: var(--sec-color-light);
+  padding: 0.5rem 1rem;
+  border: none;
+  transition: all 0.6s ease-out;
+}
+.form-action button:hover {
+  background-color: var(--sec-color-dark);
+  color: #fff;
+}
 form .form-action {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin: 3rem 0;
 }
-
-form .form-action button {
-  padding: 10px 24px;
-  font-size: 24px;
-  background-color: #22577e;
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-form .form-action button.disabled {
-  pointer-events: none;
-  opacity: 0.6;
-  background-color: #5ee6eb;
-}
-.toggle {
-  margin-top: 1rem;
-  background-color: transparent;
-  color: #5ee6eb;
-  border: none;
-  padding: 0.15rem 0.5rem;
-}
-.toggle:hover {
-  background-color: transparent;
-  color: #ae82cc;
-}
-h1 {
-  text-align: center;
-} */
