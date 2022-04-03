@@ -109,17 +109,17 @@ const SignUpForm = () => {
     conresetPasswordHandler();
 
     if (isLogin) {
+      // "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCzTfDrGGGFjKW3KWnQHVSW6nq7P-F3DXU",
+
       axios
-        .post(
-          "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCzTfDrGGGFjKW3KWnQHVSW6nq7P-F3DXU",
-          {
-            email: enteredEmail,
-            password: enteredPassword,
-            returnSecureToken: true,
-          }
-        )
+        .post("http://127.0.0.1:8000/api/v1/login", {
+          email: enteredEmail,
+          password: enteredPassword,
+          // returnSecureToken: true,
+        })
         .then((res) => {
-          dispatch(setToken(res.data.idToken));
+          console.log(res);
+          dispatch(setToken(res.data.token));
           dispatch(login());
           navigate("/");
         })
@@ -127,18 +127,18 @@ const SignUpForm = () => {
           alert(err.message);
         });
     } else {
+      // "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCzTfDrGGGFjKW3KWnQHVSW6nq7P-F3DXU",
+
       axios
-        .post(
-          "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCzTfDrGGGFjKW3KWnQHVSW6nq7P-F3DXU",
-          {
-            email: enteredEmail,
-            password: enteredPassword,
-            name: enteredName,
-            returnSecureToken: true,
-          }
-        )
+        .post("http://127.0.0.1:8000/api/v1/register", {
+          email: enteredEmail,
+          password: enteredPassword,
+          name: enteredName,
+          // returnSecureToken: true,
+        })
         .then((res) => {
-          dispatch(setToken(res.data.idToken));
+          console.log(res);
+          dispatch(setToken(res.data.token));
           dispatch(login());
           navigate("/");
         })

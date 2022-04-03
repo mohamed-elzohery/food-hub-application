@@ -18,15 +18,17 @@ const loginController = catchAsync(async (req, res, next) => {
   }
 
   const token = user.createToken();
+  console.log(token);
 
   const { exp } = jwt.decode(token, process.env.JWT_KEY);
+  console.log(exp);
 
   const expiredDate = exp;
 
   res.json({
     success: true,
-    data: user,
-    token: { token, expiredDate },
+    // data: user,
+    token: { token },
     message: 'User is logged in successfully',
   });
 });
@@ -42,8 +44,8 @@ const registerController = catchAsync(async (req, res, next) => {
 
   res.json({
     success: true,
-    data: user,
-    token: { token, expiredDate },
+    // data: user,
+    token: { token },
     message: 'User is created successfully',
   });
 });
