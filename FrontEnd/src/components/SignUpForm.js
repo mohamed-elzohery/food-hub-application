@@ -118,13 +118,13 @@ const SignUpForm = () => {
           // returnSecureToken: true,
         })
         .then((res) => {
-          console.log(res);
           dispatch(setToken(res.data.token));
           dispatch(login());
           navigate("/");
         })
         .catch((err) => {
-          alert(err.message);
+          alert("username or password is incorrect");
+          console.log(err.message);
         });
     } else {
       // "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCzTfDrGGGFjKW3KWnQHVSW6nq7P-F3DXU",
@@ -137,13 +137,13 @@ const SignUpForm = () => {
           // returnSecureToken: true,
         })
         .then((res) => {
-          console.log(res);
           dispatch(setToken(res.data.token));
           dispatch(login());
           navigate("/");
         })
         .catch((err) => {
-          alert(err.message);
+          alert("username or password is incorrect");
+          console.log(err.message);
         });
     }
   };
