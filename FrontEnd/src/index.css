@@ -1,61 +1,66 @@
 *,
 *::before,
-*::after{
-  padding: 0; 
+*::after {
+  padding: 0;
   margin: 0;
   box-sizing: inherit;
 }
 
-h1,h2,h3,h4,a{
+h1,
+h2,
+h3,
+h4,
+a {
   text-decoration: none;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   color: inherit;
-  font-family: 'The Simple Sweet Serif';
+  font-family: "The Simple Sweet Serif";
 }
 
-button{
+button {
   background-color: transparent;
   border: none;
   outline: none;
   cursor: pointer;
-  transition: all .3s ease-out;
+  transition: all 0.3s ease-out;
   box-shadow: var(--light-shadow);
 }
-
 
 body::-webkit-scrollbar {
   display: none;
 }
 
-body{
+body {
   position: relative;
   box-sizing: border-box;
+<<<<<<< HEAD
   font-family: 'BubblegumSans';
+=======
+  font-family: "Jonesy";
+>>>>>>> 45cbe1cc9bc815c0d7992c73072f4e7fc635b5cc
 }
 
 /* CSS Variabels */
 :root {
   /* COLORS */
-  --primary-color-dark: #8B0304;
-  --primary-color-light: #A70E13;
+  --primary-color-dark: #8b0304;
+  --primary-color-light: #a70e13;
 
   --sec-color-dark: #000249;
   --sec-color-regular: #040876;
-  --sec-color-light: #00FFFF;
+  --sec-color-light: #00ffff;
 
-  --grey-dark: #A9A9A9;
-  --grey-regular: #B2BEB5;
-  --grey-light: #D3D3D3;
+  --grey-dark: #a9a9a9;
+  --grey-regular: #b2beb5;
+  --grey-light: #d3d3d3;
 
   /* Shadows */
   --light-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   --dark-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-html{
+html {
   font-size: 62.5%;
 }
-
-
 
 /*tab-landscape*/
 @media only screen and (max-width: 75em) {
@@ -73,9 +78,9 @@ html{
 
 /*phone*/
 @media only screen and (max-width: 37.5em) {
-    html {
-      font-size: 42.5%;
-    }
+  html {
+    font-size: 42.5%;
+  }
 }
 
 /*big-desktop*/
@@ -87,21 +92,32 @@ html{
 
 /* FONTS */
 @font-face {
-  font-family: 'The Simple Sweet';
-  src: local('The Simple Sweet'), url(./fonts/Simply-Sweet-Font/SimplySweet_Script_regular.ttf) format('truetype');
+  font-family: "The Simple Sweet";
+  src: local("The Simple Sweet"),
+    url(./fonts/Simply-Sweet-Font/SimplySweet_Script_regular.ttf)
+      format("truetype");
 }
 
 @font-face {
-  font-family: 'The Simple Sweet Serif';
-  src: local('The Simple Sweet Serif'), url(./fonts/Simply-Sweet-Font/SimplySweet_Serif.ttf) format('truetype');
+  font-family: "The Simple Sweet Serif";
+  src: local("The Simple Sweet Serif"),
+    url(./fonts/Simply-Sweet-Font/SimplySweet_Serif.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: 'Roboto';
-  src: local('Roboto'), url(./fonts//Roboto/Roboto-Regular.ttf) format('truetype');
+  font-family: "Roboto";
+  src: local("Roboto"),
+    url(./fonts//Roboto/Roboto-Regular.ttf) format("truetype");
 }
 
 @font-face {
+<<<<<<< HEAD
   font-family: 'BubblegumSans';
   src: local('BubblegumSans'), url(./fonts/BubblegumSans/BubblegumSans-Regular.ttf) format('truetype');
 }
+=======
+  font-family: "Jonesy";
+  src: local("Jonesy"),
+    url(./fonts/Jonesy/Jonesy\ Script.ttf) format("truetype");
+}
+>>>>>>> 45cbe1cc9bc815c0d7992c73072f4e7fc635b5cc
