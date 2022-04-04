@@ -1,5 +1,6 @@
 .checkout{
     min-width: 60rem;
+    animation: appearFromLeft .3s ease-out;
 }
 
 .checkout-controls{
@@ -13,15 +14,16 @@
     font-size: 2rem;
     border-radius: 2rem;
     transition: all .3s ease-out;
+    width: 12rem;
 }
 
-.checkout-controls .order{
+ .order{
     margin-right: 1rem;
     border: 2px solid var(--sec-color-dark);
     color: var(--sec-color-dark);
 }
 
-.checkout-controls .cancel{
+.cancel{
     border: 2px solid var(--primary-color-dark);
     color: #FFF;
     background-color: var(--primary-color-dark);
@@ -30,9 +32,13 @@
 .checkout-controls .order:hover{
     background-color: var(--sec-color-dark);
     color: #FFF;
-
 }
 
+.disabled{
+   opacity: .6;;
+    border: none;
+    pointer-events: none;
+}
 .price-pane{
     margin: 2rem 0;
     display: flex;
@@ -51,14 +57,18 @@
 }
 
 
-.checkout h2{
+.checkout h2, .order-section h2{
     font-size: 10rem;
     color: var(--sec-color-dark);
     text-align: center;
 }
 
 .no-item-txt{
-        
+        font-size: 4rem;
+        font-weight: bold;
+        color: var(--primary-color-dark);
+        margin-top: 10rem;
+        text-align: center;
 }
 
 .cart-items{
@@ -75,5 +85,48 @@
   }
 
 
+  /* ORDER SECTION */
+  .order-section{
+    min-width: 50rem;
+    animation: appearFromRight .3s ease-out;
+  }
 
-/* TEMP */
+  .order-section button{
+    padding: 1rem 3rem;
+    font-size: 2rem;
+    border-radius: 2rem;
+    transition: all .3s ease-out;
+    width: 12rem;
+  }
+
+   .form-control{
+      display: flex;
+      flex-direction: row-reverse;
+  }
+
+
+
+
+@keyframes appearFromLeft {
+    0%{
+        opacity: 0;
+        transform: translateX(-20%);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes appearFromRight {
+    0%{
+        opacity: 0;
+        transform: translateX(20%);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

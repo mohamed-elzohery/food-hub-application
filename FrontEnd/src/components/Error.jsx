@@ -5,7 +5,7 @@ function Error() {
     <div
       style={{
         backgroundColor: "red",
-        height: "calc(100vh - 3rem)",
+        height: "calc(100vh - 10rem)",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",

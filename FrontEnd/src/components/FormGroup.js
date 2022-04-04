@@ -11,17 +11,18 @@ const FormGroup = (props) => {
     inputHasError,
     errMsg,
   } = props;
+
   return (
     <div
       className={`${classes["form-control"]} ${
         inputHasError ? classes.invalid : ""
       }`}
     >
-      <label htmlFor="name">{name}</label>
+      <label htmlFor={name}>{name}</label>
       <input
         type={type}
         id={name}
-        placeholder={name}
+        placeholder={props.placeholder || name}
         onChange={valueChangedHandler}
         onBlur={inputBlurHandler}
         value={enteredValue}

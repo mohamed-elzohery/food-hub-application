@@ -1,8 +1,7 @@
-import React, { useContext } from "react";
-import Header from './layout/header/Header';
-import SideBar from './UI/sidebar/SideBar';
-// import SignUpForm from "./components/SignUpForm";
-// import LoginForm from "./components/LoginForm";
+import React from "react";
+import Header from "./layout/header/Header";
+import SideBar from "./UI/sidebar/SideBar";
+import SignUpForm from "./components/SignUpForm";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Error from "./components/Error";
 import Home from "./pages/Home";
@@ -12,24 +11,23 @@ import NavBar from "./UI/navbar/NavBar";
 import Footer from "./layout/footer/Footer";
 import Cart from "./components/cart/Cart";
 import { useSelector } from "react-redux";
+
 function App() {
-  const isSidebarShown = useSelector(state => state.UI.isSidebarShown);
-  const isCartOpen = useSelector(state => state.UI.isCartOpen);
-  console.log(isCartOpen)
+  const isSidebarShown = useSelector((state) => state.UI.isSidebarShown);
+  const isCartOpen = useSelector((state) => state.UI.isCartOpen);
+  const isLoggedIn = useSelector((state) => state.auth.isLoggined);
   return (
     <div className="App">
-      <NavBar />
       <Header />
       {isSidebarShown && <SideBar />}
       {isCartOpen && <Cart />}
       <main>
-      <Routes>
-                <Route path="/home" element={<Home />} />
-                <Route path="/" element={<Navigate to='/home' />} />
-                {/* {!isLoggedIn && <Route path="/login" element={<LoginForm />} />}
-                {!isLoggedIn && <Route path="/Signup" element={<SignUpForm />} />} */}
-                <Route path="*" element={<Error />} />
-      </Routes>
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Navigate to="/home" />} />
+          {!isLoggedIn && <Route path="/auth" element={<SignUpForm />} />}{" "}
+          <Route path="*" element={<Error />} />
+        </Routes>
       </main>
       <Footer />
     </div>

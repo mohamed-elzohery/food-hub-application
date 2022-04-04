@@ -1,17 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import classes from "../styles/SignUpForm.module.css";
 import useInput from "../hooks/use-input";
 import FormGroup from "./FormGroup";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { setToken, login } from "../storeTokens/Auth-Context";
+import { useDispatch, useSelector } from "react-redux";
+import { setToken, login } from "../slices/Auth-slice";
+import { toggleLoginAction } from "../slices/Login-State-slice";
 import axios from "axios";
 
 const emailRegex =
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const usernameRegex = /^[A-Za-z]\w*$/;
 
-const validateName = (val) => {
+export const validateName = (val) => {
   let name = val.toString().trim();
   if (name === "") return { isValid: false, msg: "Name is required" };
   if (name.length < 3)
@@ -24,7 +25,7 @@ const validateName = (val) => {
   return { isValid: true };
 };
 
-const validateEmail = (val) => {
+export const validateEmail = (val) => {
   let email = val.toString().trim().toLowerCase();
   if (email === "") return { isValid: false, msg: "Email is required" };
   if (!email.match(emailRegex))
@@ -44,7 +45,7 @@ export const validatePassword = (val) => {
 };
 
 const SignUpForm = () => {
-  const [isLogin, setIsLogin] = useState(true);
+  const isLogin = useSelector((state) => state.login.isLogin);
   const dispatch = useDispatch();
   let navigate = useNavigate();
 
@@ -97,7 +98,7 @@ const SignUpForm = () => {
   } = useInput(validateconPassword);
 
   const switchAuthModeHandler = () => {
-    setIsLogin((prevState) => !prevState);
+    dispatch(toggleLoginAction());
   };
   const onSumbitHandler = (e) => {
     e.preventDefault();
@@ -108,47 +109,47 @@ const SignUpForm = () => {
     conresetPasswordHandler();
 
     if (isLogin) {
+      // "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCzTfDrGGGFjKW3KWnQHVSW6nq7P-F3DXU",
+
       axios
-        .post(
-          "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCzTfDrGGGFjKW3KWnQHVSW6nq7P-F3DXU",
-          {
-            email: enteredEmail,
-            password: enteredPassword,
-            returnSecureToken: true,
-          }
-        )
+        .post("http://127.0.0.1:8000/api/v1/login", {
+          email: enteredEmail,
+          password: enteredPassword,
+          // returnSecureToken: true,
+        })
         .then((res) => {
-          dispatch(setToken(res.data.idToken));
+          dispatch(setToken(res.data.token));
           dispatch(login());
           navigate("/");
         })
         .catch((err) => {
-          alert(err.message);
+          alert("username or password is incorrect");
+          console.log(err.message);
         });
     } else {
+      // "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCzTfDrGGGFjKW3KWnQHVSW6nq7P-F3DXU",
+
       axios
-        .post(
-          "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCzTfDrGGGFjKW3KWnQHVSW6nq7P-F3DXU",
-          {
-            email: enteredEmail,
-            password: enteredPassword,
-            name: enteredName,
-            returnSecureToken: true,
-          }
-        )
+        .post("http://127.0.0.1:8000/api/v1/register", {
+          email: enteredEmail,
+          password: enteredPassword,
+          name: enteredName,
+          // returnSecureToken: true,
+        })
         .then((res) => {
-          dispatch(setToken(res.data.idToken));
+          dispatch(setToken(res.data.token));
           dispatch(login());
           navigate("/");
         })
         .catch((err) => {
-          alert(err.message);
+          alert("username or password is incorrect");
+          console.log(err.message);
         });
     }
   };
 
   return (
-    <form onSubmit={onSumbitHandler} className={classes.form}>
+    <form onSubmit={onSumbitHandler} className={classes["order-form"]}>
       <h1>{isLogin ? "Log in Form" : "Sign Up Form"}</h1>
 
       {!isLogin ? (
@@ -196,16 +197,12 @@ const SignUpForm = () => {
       ) : (
         ""
       )}
-      <div>
+      <p className={classes["question"]}>
         {isLogin ? "Not a registerd user?" : "Already a registered user?"}
-        <button
-          onClick={switchAuthModeHandler}
-          type="button"
-          className={classes.toggle}
-        >
+        <button onClick={switchAuthModeHandler} type="button">
           {isLogin ? "Register" : "Login!"}
         </button>
-      </div>
+      </p>
 
       <div className={classes["form-action"]}>
         {isLogin ? (
