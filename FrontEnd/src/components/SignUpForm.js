@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setToken, login } from "../slices/Auth-slice";
 import { toggleLoginAction } from "../slices/Login-State-slice";
+import GoogleOuath2 from "./GoogleOuath2";
 import axios from "axios";
 
 const emailRegex =
@@ -206,6 +207,7 @@ const SignUpForm = () => {
       </p>
 
       <div className={classes["form-action"]}>
+        <GoogleOuath2 />
         {isLogin ? (
           <button
             className={`${
