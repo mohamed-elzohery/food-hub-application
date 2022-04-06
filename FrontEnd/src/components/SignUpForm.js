@@ -137,6 +137,7 @@ const SignUpForm = () => {
           // returnSecureToken: true,
         })
         .then((res) => {
+          console.log(res);
           dispatch(setToken(res.data.token));
           dispatch(login());
           navigate("/");

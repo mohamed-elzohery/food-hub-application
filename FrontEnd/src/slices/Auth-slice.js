@@ -13,11 +13,18 @@ const authSlice = createSlice({
   initialState: initialAuthState,
   reducers: {
     setToken: (state, action) => {
-      state.token = action.payload;
+      state.token = action.payload.token;
+      const tokenExpiration = action.payload.expiredDate;
+      const ExpirationDateAbsolute = Date.now() + tokenExpiration;
+      console.log(ExpirationDateAbsolute);
       cookies.set("token", state.token, {
         path: "/",
-        expires: new Date(Date.now() + 3600 * 1000),
+        expires: new Date(ExpirationDateAbsolute),
       });
+      setTimeout(() => {
+        state.token = null;
+        state.isLoggined = false;
+      }, ExpirationDateAbsolute);
     },
     login: (state) => {
       state.isLoggined = true;
