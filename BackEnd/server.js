@@ -1,19 +1,13 @@
-const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const app = require('./app');
+
+const connecteDB = require('./helper/connectDB');
 
 dotenv.config('.env');
 
 const { PORT, DB_URL } = process.env;
 
-mongoose
-  .connect(DB_URL)
-  .then(() => {
-    console.log('DB connected');
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+connecteDB(DB_URL);
 
 app.listen(PORT, () => {
   console.log('server is running....');

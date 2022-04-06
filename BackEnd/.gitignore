@@ -7,6 +7,9 @@
 .pnp.js
 .env
 
+<<<<<<< HEAD
+/node_modules
+=======
 # testing
 /coverage
 
@@ -23,3 +26,4 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+>>>>>>> 3c6ae373d5377061c2e7d7c2883dd3be156f9470
