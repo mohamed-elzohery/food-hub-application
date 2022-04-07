@@ -11,8 +11,9 @@ import axios from "axios";
 
 const emailRegex =
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-const usernameRegex = /^[A-Za-z]\w*$/;
-
+const usernameRegex = /^[a-zA-Z\s\.]*$/;
+//^[A-Za-z]\w*$ to not accept any whitespaces
+//^[a-zA-Z\s\.]*$ to accept only dots and spaces
 export const validateName = (val) => {
   let name = val.toString().trim();
   if (name === "") return { isValid: false, msg: "Name is required" };

@@ -1,180 +1,180 @@
-.meal{
-    /* border: 1px solid var(--grey-light); */
-    box-shadow: var(--light-shadow);
-    display: flex;
-    align-items: center;
-    max-width: 90rem;
-    transition: all .3s ease-in-out;
-    /* border-radius: 3rem; */
-    height: 25rem;
-    animation: appearFromBottom .3s;
+.meal {
+  /* border: 1px solid var(--grey-light); */
+  box-shadow: var(--light-shadow);
+  display: flex;
+  align-items: center;
+  max-width: 90rem;
+  transition: all 0.3s ease-in-out;
+  /* border-radius: 3rem; */
+  height: 25rem;
+  animation: appearFromBottom 0.3s;
 }
 
-.meal:not(:last-child){
-    margin-bottom: 6rem;
+.meal:not(:last-child) {
+  margin-bottom: 6rem;
 }
 
-.meal:hover{
-    box-shadow: var(--dark-shadow);
-    transform: translateY(-.2rem);
+.meal:hover {
+  box-shadow: var(--dark-shadow);
+  transform: translateY(-0.2rem);
 }
 
-.meal img{
-    width: 37%;
-    height: inherit;
-    object-fit: cover;
+.meal img {
+  width: 37%;
+  height: inherit;
+  object-fit: cover;
 }
 
-.meal .textbox{
-    display: flex;
-    flex-direction: column;
-    flex-basis: 60%;
-    margin-left: 2rem;
-    padding: 1rem;
+.meal .textbox {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 60%;
+  margin-left: 2rem;
+  padding: 1rem;
 }
 
-.meal .textbox h3{
-    font-size: 4rem;
-    color: var(--sec-color-regular);
+.meal .textbox h3 {
+  font-size: 4rem;
+  color: var(--sec-color-regular);
 }
 
-.meal .textbox p{
-    font-size: 2rem;
-    color: var(--primary-color-light);
-    margin-top: 1rem;
+.meal .textbox p {
+  font-size: 2rem;
+  color: var(--primary-color-light);
+  margin-top: 1rem;
 }
 
-.meal .textbox p.price{
-    font-family: 'The Simple Sweet Serif';
-    font-size: 2.5rem;
-    margin-top: 3rem;
-    font-weight: bold;
-    color: var(--grey-dark);
+.meal .textbox p.price {
+  font-family: "The Simple Sweet Serif";
+  font-size: 2.5rem;
+  margin-top: 3rem;
+  font-weight: bold;
+  color: var(--grey-dark);
 }
 
-.meal .textbox p.price span{
-    font-size: 5rem;
-    font-weight: bold;
-    margin-left: 1rem;
+.meal .textbox p.price span {
+  font-size: 5rem;
+  font-weight: bold;
+  margin-left: 1rem;
 }
 
-.meal .counter{
-    padding: 2rem;
-    flex-basis: 25%;
-    display: flex;
-    flex-direction: column;
-    /* align-items: center; */
-    margin-left: 1rem;
+.meal .counter {
+  padding: 2rem;
+  flex-basis: 25%;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  margin-left: 1rem;
 }
 
-.meal .counter input{
-    background-color: transparent;
-    font-size: 3rem;
-    text-align: center;
-    font-weight: bold;
-    width: 100%;
-    color: var(--sec-color-dark);
-    border: none;
-    margin-left: .6rem;
+.meal .counter input {
+  background-color: transparent;
+  font-size: 3rem;
+  text-align: center;
+  font-weight: bold;
+  width: 100%;
+  color: var(--sec-color-dark);
+  border: none;
+  margin-left: 0.6rem;
 }
 
-.meal .counter input.reset{
-    color: var(--primary-color-light);
+.meal .counter input.reset {
+  color: var(--primary-color-light);
 }
 
-.meal .counter .controls{
-    margin-top: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.meal .counter .controls {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .meal .counter .controls button {
-    border: 1px solid var(--grey-regular);
-    border-radius: 1rem;
-    width: 4rem;
-    height: 4rem;
-    display: flex;
-    font-size: 3rem;
-    font-weight: bold;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    color: var(--sec-color-dark);
-    transition: all .3s ease-in;
+  border: 1px solid var(--grey-regular);
+  border-radius: 1rem;
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  font-size: 3rem;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: var(--sec-color-dark);
+  transition: all 0.3s ease-in;
 }
 
-.meal .counter .controls button:hover{
-    box-shadow: var(--dark-shadow);
-    transform: translateY(-.2rem);
+.meal .counter .controls button:hover {
+  box-shadow: var(--dark-shadow);
+  transform: translateY(-0.2rem);
 }
 
-.meal .counter .controls button:active{
-    box-shadow: var(--dark-light);
-    transform: translateY(-.1rem);
+.meal .counter .controls button:active {
+  box-shadow: var(--dark-light);
+  transform: translateY(-0.1rem);
 }
 
-.meal .counter .controls button:last-child{
-    background-color: var(--primary-color-light);
-    color: #FFF;
+.meal .counter .controls button:last-child {
+  background-color: var(--primary-color-light);
+  color: #fff;
 }
 
-.meal .counter .controls button:first-child:hover{
-    box-shadow: var(--dark-shadow);
-    transform: translateY(-.2rem);
-    color: #FFF;
-    background-color: var(--sec-color-regular);
+.meal .counter .controls button:first-child:hover {
+  box-shadow: var(--dark-shadow);
+  transform: translateY(-0.2rem);
+  color: #fff;
+  background-color: var(--sec-color-regular);
 }
 
-.meal .counter  .orderbtn{
-    padding: 1rem 2rem;
-    font-size: 2rem;
-    margin-top: 2rem;
-    color: #FFF;
-    background-color: var(--sec-color-regular);
-    font-weight: bold;
+.meal .counter .orderbtn {
+  padding: 1rem 2rem;
+  font-size: 2rem;
+  margin-top: 2rem;
+  color: #fff;
+  background-color: var(--sec-color-regular);
+  font-weight: bold;
 }
 
-.meal .counter  .orderbtn:hover{
-    box-shadow: var(--dark-shadow);
-    transform: translateY(-.2rem);
-  }
-  
-.meal .counter  .orderbtn:active{
-    box-shadow: var(--dark-light);
-    transform: translateY(-.1rem);
-  }
+.meal .counter .orderbtn:hover {
+  box-shadow: var(--dark-shadow);
+  transform: translateY(-0.2rem);
+}
 
-  .disabled{
-      background-color: var(--grey-dark) !important;
-      pointer-events: none !important;
-  }
+.meal .counter .orderbtn:active {
+  box-shadow: var(--dark-light);
+  transform: translateY(-0.1rem);
+}
+
+.disabled {
+  background-color: var(--grey-dark) !important;
+  pointer-events: none !important;
+}
 
 @media only screen and (max-width: 43.75em) {
-    .meal{
-        flex-wrap: wrap;
-        height: auto;
-    }
-    
-    .meal img{
-        width: 100%;
-        height: 38rem;
-    }
+  .meal {
+    flex-wrap: wrap;
+    height: auto;
+  }
 
-    .meal .counter{
-        margin-left: auto;
-        margin-right: 2rem;
-    }
+  .meal img {
+    width: 100%;
+    height: 38rem;
+  }
+
+  .meal .counter {
+    margin-left: auto;
+    margin-right: 2rem;
+  }
 }
 
 @keyframes appearFromBottom {
-    0%{
-        transform: translateY(50%);
-        opacity: 0;
-    }
+  0% {
+    transform: translateY(50%);
+    opacity: 0;
+  }
 
-    100%{
-        transform: translateX(0);
-        opacity: 1;
-    }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
