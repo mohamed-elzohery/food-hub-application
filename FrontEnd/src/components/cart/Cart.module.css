@@ -17,7 +17,7 @@
     width: 12rem;
 }
 
- .order{
+.order{
     margin-right: 1rem;
     border: 2px solid var(--sec-color-dark);
     color: var(--sec-color-dark);
@@ -88,7 +88,21 @@
   /* ORDER SECTION */
   .order-section{
     min-width: 50rem;
+    min-height: 60rem;
+    display: flex;
+    flex-direction: column;
     animation: appearFromRight .3s ease-out;
+  }
+
+  .order-section input:last-child{
+      margin-bottom: 3rem;
+  }
+
+
+  .order-section form{
+      display: flex;
+      flex-direction: column;
+      flex: 1 0;
   }
 
   .order-section button{
@@ -99,8 +113,9 @@
     width: 12rem;
   }
 
-   .form-control{
+   .form-action{
       display: flex;
+      margin-top: auto;
       flex-direction: row-reverse;
   }
 

@@ -3,7 +3,7 @@
     margin: 0 auto;
 }
 
-@media only screen and (max-width: 56.5em) {
+@media only screen and (max-width: 60em) {
     .container{
         width: 100%;
     }

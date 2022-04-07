@@ -6,8 +6,8 @@ import { CartActions } from "../../slices/Cart-slice";
 import { UIActions } from "../../slices/UI-slice";
 import CartItem from "./CartItem";
 import useInput from "../../hooks/use-input";
-import { validateName } from "../SignUpForm";
-import FormGroup from "../FormGroup";
+import { validateName } from "../SiginupForm/SignUpForm";
+import FormGroup from "../FormGroup/FormGroup";
 
 const validatePhone = (val) => {
   const phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
@@ -148,7 +148,7 @@ const OrderForm = () => {
           errMsg={addressErrMsg}
           placeholder="Ex: City, Street, Home NO."
         />
-        <div className={classes["form-control"]}>
+        <div className={classes["form-action"]}>
           <button
             className={`${classes.cancel} ${
               isAddressValid && isPhoneValid && isNameValid

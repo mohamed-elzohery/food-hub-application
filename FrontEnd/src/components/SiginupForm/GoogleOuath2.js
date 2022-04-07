@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { GoogleLogin } from "react-google-login";
-import { setToken, login } from "../slices/Auth-slice";
+import { setToken, login } from "../../slices/Auth-slice";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import classes from "../styles/GoogleOuath2.css";
+import classes from "./GoogleOuath2.module.css";
 
 function GoogleOuath2() {
   const dispatch = useDispatch();
@@ -68,7 +68,7 @@ function GoogleOuath2() {
           onSuccess={onLoginSuccess}
           onFailure={onLoginFailure}
           // cookiePolicy={"single_host_origin"}
-          className={["google-login"]}
+          className={classes["google-login"]}
         />
       ) : null}
     </div>
