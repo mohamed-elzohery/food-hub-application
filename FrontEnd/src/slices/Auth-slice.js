@@ -2,11 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 import Cookies from "universal-cookie";
 
 const cookies = new Cookies();
-const eksde = cookies.get("token");
+const token = cookies.get("token");
 
 const initialAuthState = {
-  token: "",
-  isLoggined: !!eksde,
+  token,
+  isLoggined: !!token,
 };
 const authSlice = createSlice({
   name: "auth",
