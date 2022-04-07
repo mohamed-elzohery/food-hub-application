@@ -3,10 +3,9 @@ import SideBar from "./UI/sidebar/SideBar";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Error from "./pages/Error";
 import Home from "./pages/Home";
-import Register from './pages/Register'
+import Register from "./pages/Register";
 //uncomment if you want to change user pw
 // import Profile from "./components/Profile";
-import NavBar from "./UI/navbar/NavBar";
 import Footer from "./layout/footer/Footer";
 import Cart from "./components/cart/Cart";
 import { useSelector } from "react-redux";
