@@ -19,6 +19,8 @@ const findOrderById = catchAsync(async (req, res, next) => {
 
 const getAllOrders = catchAsync(async (req, res) => {
   const orders = await ORDER.find();
+  const {_id} = req.user;
+    console.log(_id.toString());
   res.json({
     message: 'succuss',
     data: orders,
@@ -27,29 +29,28 @@ const getAllOrders = catchAsync(async (req, res) => {
 });
 
 const createNewOrder = catchAsync(async (req, res, next) => {
-  try {
-    const { creator, meals } = req.body;
+    const {_id} = req.user;
+    console.log(_id.toString());
+    const { meals } = req.body;
 
-    const user = await USERS.findById(creator);
+    const user = await USERS.findById(_id.toString());
 
     if (user === null || !meals) {
       const error = new ErrorResponse(
         404,
         'Could not find user for provided id'
       );
-      next(error);
+      return next(error);
     }
 
-    await ORDER.create(req.body);
+    await ORDER.create({...req.body, creator: _id});
 
     res.json({
       message: 'succuss',
       data: req.body,
       success: true,
+      message: 'Order is placed successfully'
     });
-  } catch (error) {
-    next(new ErrorResponse(404, 'Could not find Meal for provided id'));
-  }
 });
 
 module.exports = {

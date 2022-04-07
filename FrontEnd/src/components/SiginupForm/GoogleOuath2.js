@@ -64,7 +64,6 @@ function GoogleOuath2() {
       {showLoginButton ? (
         <GoogleLogin
           clientId={clientId}
-          buttonText="Login"
           onSuccess={onLoginSuccess}
           onFailure={onLoginFailure}
           // cookiePolicy={"single_host_origin"}

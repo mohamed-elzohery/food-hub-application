@@ -1,6 +1,7 @@
-footer {
-  padding: 4rem 0;
-  background-color: var(--primary-color-dark);
+footer{
+    padding:  4rem 0;
+    background-color: var(--primary-color-dark);
+    margin-top: auto;
 }
 
 footer .copysection {

@@ -26,7 +26,8 @@ const userSchema = new Schema(
     },
     role: {
       type: String,
-      require: [true, 'You Must Enter your Role'],
+      enum: ['user', 'admin'],
+      default: 'user'
     },
   },
   { timestamps: true }

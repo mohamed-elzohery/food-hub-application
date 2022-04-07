@@ -136,7 +136,7 @@ const SignUpForm = () => {
           email: enteredEmail,
           password: enteredPassword,
           name: enteredName,
-          // returnSecureToken: true,
+          role: 'user'
         })
         .then((res) => {
           dispatch(setToken(res.data.token));
@@ -151,8 +151,8 @@ const SignUpForm = () => {
   };
 
   return (
+    <>
     <form onSubmit={onSumbitHandler} className={classes["order-form"]}>
-      <h1>{isLogin ? "Log in Form" : "Sign Up Form"}</h1>
 
       {!isLogin ? (
         <FormGroup
@@ -232,6 +232,7 @@ const SignUpForm = () => {
         )}
       </div>
     </form>
+  </>
   );
 };
 

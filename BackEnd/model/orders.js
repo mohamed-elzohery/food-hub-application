@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const {isMobilePhone} = require('validator');
 
 const orderSchema = new mongoose.Schema({
   creator: {
@@ -6,10 +7,26 @@ const orderSchema = new mongoose.Schema({
     required: true,
     ref: 'users',
   },
+
+  name: {
+    type: String,
+    required: [true, 'Name is reqiure'],
+  },
+
+  phone: {
+    type: String,
+    validate: {
+      validator: isMobilePhone,
+      message: 'Mobile phone is not valid',
+    },
+    required: [true, 'Phone is reqiure'],
+  },
+
   address: {
     type: String,
     required: [true, 'address is reqiure'],
   },
+  
   meals: [
     {
       mealId: {

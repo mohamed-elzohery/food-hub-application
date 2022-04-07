@@ -1,8 +1,7 @@
 const ErrorResponse = require('../utils.js/ErrorResponse');
 
 const errorHandler = (err, req, res, next) => {
-  const { message } = err;
-  let statusCode;
+  const { statusCode, message } = err;
   const error = new ErrorResponse(statusCode || 500, message || 'server Error');
 
   //handle non-mongoose-ObjectID-like values.

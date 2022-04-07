@@ -1,19 +1,15 @@
+
 .order-form {
-  max-width: 1200px;
-  margin: 20rem auto;
-  padding: 12px 30px;
-  border: 1px solid #000;
-  background-color: #ccc;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  border-radius: 20px;
+  padding: 1.2rem 3rem;
+  background-color: rgba(255, 255, 255, .85);
+  max-width: 60rem;
+
 }
 
-.order-form h1 {
-  font-size: 10rem;
-  color: var(--sec-color-dark);
-  text-align: center;
-  margin-bottom: 2rem;
+.order-form input:last-child{
+  margin-bottom: 3rem;
 }
+
 .order-form .question {
   font-size: 3rem;
   color: var(--sec-color-regular);
@@ -23,7 +19,7 @@
   font-size: 3rem;
   color: var(--sec-color-dark);
   margin: 0 1rem;
-  font-family: "BubblegumSans";
+  font-family: inherit;
   outline: none;
   border-radius: 0.5rem;
   background-color: var(--sec-color-light);
@@ -35,7 +31,7 @@
   color: #fff;
 }
 .form-action .disabled {
-  opacity: 0.4;
+  opacity: 0.9;
   border: none;
   pointer-events: none;
   font-size: 5rem;
@@ -63,8 +59,7 @@
 }
 form .form-action {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   margin: 3rem 0;
 }
