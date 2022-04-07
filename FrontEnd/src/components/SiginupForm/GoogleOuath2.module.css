@@ -1,10 +1,8 @@
 .google-login {
   display: block;
-  background: white;
-  color: #444;
-  width: 55rem;
-  border-radius: 5px;
-  border: thin solid #888;
-  box-shadow: 1px 1px 1px grey;
-  white-space: nowrap;
+  background-color: var(--primary-color-dark)!important;
+  color: #FFF!important;
+  opacity: 1!important;
 }
+
+

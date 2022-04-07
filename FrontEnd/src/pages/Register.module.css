@@ -1,0 +1,23 @@
+.register{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+body{
+    min-height: 100vh;
+}
+
+.form-section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header{
+    font-size: 10rem;
+    color: var(--sec-color-dark);
+    text-align: center;
+    margin-top: 15rem;
+  }

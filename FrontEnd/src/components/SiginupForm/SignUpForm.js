@@ -152,8 +152,8 @@ const SignUpForm = () => {
   };
 
   return (
+    <>
     <form onSubmit={onSumbitHandler} className={classes["order-form"]}>
-      <h1>{isLogin ? "Log in Form" : "Sign Up Form"}</h1>
 
       {!isLogin ? (
         <FormGroup
@@ -233,6 +233,7 @@ const SignUpForm = () => {
         )}
       </div>
     </form>
+  </>
   );
 };
 

@@ -17,6 +17,10 @@ const NavLinks = (props) => {
 
   const openCartHandler = (e) => {
     e.preventDefault();
+    if(!isLoggedIn){
+      navigate("/auth");
+      return;
+    }
     dispatch(UIActions.openCart());
   };
 
