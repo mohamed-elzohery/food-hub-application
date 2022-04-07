@@ -6,7 +6,7 @@ const mealSchema = new Schema({
     required: [true, 'title  name must be required'],
     unique: true,
   },
-  description: String,
+  desc: String,
   price: {
     type: Number,
     required: [true, 'Price is Require'],
@@ -16,6 +16,10 @@ const mealSchema = new Schema({
     type: String,
     enum: ['pizza', 'burger', 'chicken'],
   },
+  photo: {
+    type: String,
+    default: 'default.jpg'
+  }
 });
 
 const mealsModel = model('meals', mealSchema);

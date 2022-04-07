@@ -1,0 +1,25 @@
+.notification{
+    padding: 1rem 2rem;
+    background-color: var(--sec-color-dark);
+    color: #FFF;
+    font-size: 2rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    animation: showNotification .3s ease-out;
+}
+
+@keyframes showNotification{
+    0%{
+        transform: translateY(100%);
+    }
+    20%{
+        transform: translateY(80%);
+    }
+    80%{
+        transform: translateY(20%);
+    }
+    100%{
+        transform: translateY(0%);
+    }
+}

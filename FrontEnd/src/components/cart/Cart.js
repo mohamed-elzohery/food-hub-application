@@ -10,8 +10,7 @@ import { validateName } from "../SignUpForm";
 import FormGroup from "../FormGroup";
 
 const validatePhone = (val) => {
-  const phoneRegex =
-    /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+  const phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
   let phone = val.toString().trim();
   if (phone === "") return { isValid: false, msg: "Phone is required" };
   if (!phone.match(phoneRegex))
@@ -52,6 +51,7 @@ const Checkout = () => {
             title={meal.title}
             amount={meal.amount}
             id={meal.id}
+            photo={meal.photo}
           />
         ))}
       </div>

@@ -26,9 +26,9 @@ button {
   box-shadow: var(--light-shadow);
 }
 
-body::-webkit-scrollbar {
+/* body::-webkit-scrollbar {
   display: none;
-}
+} */
 
 body {
   position: relative;

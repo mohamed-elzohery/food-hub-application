@@ -13,12 +13,7 @@ const findMealByID = catchAsync(async (req, res, next) => {
 });
 
 const getAllMeals = catchAsync(async (req, res) => {
-  const meals = await MEALS.find();
-  res.json({
-    message: 'succuss',
-    data: meals,
-    success: true,
-  });
+  res.json(res.adjustRes);
 });
 
 const getMealByID = catchAsync(async (req, res) => {

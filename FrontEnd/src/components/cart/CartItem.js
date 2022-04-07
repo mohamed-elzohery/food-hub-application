@@ -1,13 +1,12 @@
 import React from 'react';
 import classes from './CartItem.module.css';
-import mealImg from '../../components/Meals/meal.jpg';
 import { useDispatch } from 'react-redux';
 import { CartActions } from '../../slices/Cart-slice';
 
 const CartItem = (props) => {
     const dispatch = useDispatch();
 
-    const {id, amount, price, title} = props;
+    const {id, amount, price, title, photo} = props;
 
     const onIncreaseHandler = () => {
         dispatch(CartActions.addItem({id, amount : 1, price}));
@@ -30,7 +29,7 @@ const CartItem = (props) => {
         </div>
     </div>
     <div className={classes['cart-img__container']}>
-        <img src={mealImg} alt='meal photo'/>
+        <img src={`http://localhost:8000/${photo}`} alt='meal photo'/>
     </div>
 </div>
 }

@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <header>
       <NavBar />
-      {isLoggedIn && <div className={classes.header}>
+      {!isLoggedIn && <div className={classes.header}>
         <img src={foodImg} alt="food" />
         <div className={classes.textbox}>
           <h1>Order your food</h1>

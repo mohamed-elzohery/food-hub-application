@@ -3,216 +3,216 @@
     "title": "Pizza",
     "desc": "Fast food you can order with Pepsi or Coca-Cola. It is hot and fresh.",
     "price": 24,
-    "photo": "http://localhost:8000/photo1.jpg"
+    "photo": "photo1.jpg"
   },
   {
     "title": "Fruit Salad",
     "desc": "Fruit salad consists of Bananas, Strewberry and oranges. Healty and fresh food.",
     "price": 10,
-    "photo": "http://localhost:8000/photo2.jpg"
+    "photo": "photo2.jpg"
   },
   {
     "title": "Fried Chicken",
     "desc": "Fast food you can order with Pepsi or Coca-Cola. It is hot and fresh. it comes with bread or rice.",
     "price": 20,
-    "photo": "http://localhost:8000/photo3.jpg"
+    "photo": "photo3.jpg"
   },
   {
     "title": "Meat Pie",
     "desc": "Oriental food of great taste and flavor you can order it with different sizes and additives.",
     "price": 17,
-    "photo": "http://localhost:8000/photo4.jpg"
+    "photo": "photo4.jpg"
   },
   {
     "title": "Pepsi Machine",
     "desc": "Ofcourse not the machine itself it is pepsi from the machine",
     "price": 6,
-    "photo": "http://localhost:8000/photo5.jpg"
+    "photo": "photo5.jpg"
   },
   {
     "title": "Meat Burger",
     "desc": "Giant burger of 150 gms you can order it with fries and ketchup it is better than mac",
     "price": 30,
-    "photo": "http://localhost:8000/photo6.jpg"
+    "photo": "photo6.jpg"
   },
   {
     "title": "Apple Pie",
     "desc": "Tastsy apple pie with a lot of flavours. You can order it as part of your desert.",
     "price": 14,
-    "photo": "http://localhost:8000/photo7.jpg"
+    "photo": "photo7.jpg"
   },
   {
     "title": "Pasta",
     "desc": "The famous italian food loved by many we bring it to you with white or red sauce.",
     "price": 12,
-    "photo": "http://localhost:8000/photo8.jpg"
+    "photo": "photo8.jpg"
   },
   {
     "title": "Meat Balls",
     "desc": "Local food comes with pasta or rice. You can try it with spices of your choices.",
     "price": 18,
-    "photo": "http://localhost:8000/photo9.jpg"
+    "photo": "photo9.jpg"
   },
   {
     "title": "Sea food Soup",
     "desc": "Fish lovers will admire this fish it comes with a mixture of shrimps and tuna pieces.",
     "price": 44,
-    "photo": "http://localhost:8000/photo10.jpg"
+    "photo": "photo10.jpg"
   },
   {
     "title": "Garlic",
     "desc": "Fast food you can order with Pepsi or Coca-Cola. It is hot and fresh.",
     "price": 24,
-    "photo": "http://localhost:8000/photo11.jpg"
+    "photo": "photo11.jpg"
   },
   {
     "title": "Curry leaves",
     "desc": "Fruit salad consists of Bananas, Strewberry and oranges. Healty and fresh food.",
     "price": 10,
-    "photo": "http://localhost:8000/photo12.jpg"
+    "photo": "photo12.jpg"
   },
   {
     "title": "Red chili",
     "desc": "Fast food you can order with Pepsi or Coca-Cola. It is hot and fresh. it comes with bread or rice.",
     "price": 20,
-    "photo": "http://localhost:8000/photo13.jpg"
+    "photo": "photo13.jpg"
   },
   {
     "title": "Sea salt",
     "desc": "Oriental food of great taste and flavor you can order it with different sizes and additives.",
     "price": 17,
-    "photo": "http://localhost:8000/photo14.jpg"
+    "photo": "photo14.jpg"
   },
   {
     "title": "Homemade Strawberry Shake",
     "desc": "Homemade Strawberry Shake might be just the beverage you are searching for. It is made with fresh strawberries and ice cream.",
     "price": 6,
-    "photo": "http://localhost:8000/photo15.jpg"
+    "photo": "photo15.jpg"
   },
   {
-    "title": "Stuffed Pork Tenderloin with Marsala-Port Sauce",
+    "title": "Stuffed Pork Tenderloin",
     "desc": "Stuffed Pork Tenderloin with Marsala-Port Sauce might be just the dish you are searching for. It is made with fresh pork tenderloin and a rich, creamy sauce.",
     "price": 30,
-    "photo": "http://localhost:8000/photo16.jpg"
+    "photo": "photo16.jpg"
   },
   {
     "title": "Chewy Gingersnaps",
     "desc": "Chewy Gingersnaps might be just the dessert you are searching for. It is made with fresh gingersnaps and ice cream.",
     "price": 14,
-    "photo": "http://localhost:8000/photo17.jpg"
+    "photo": "photo17.jpg"
   },
   {
     "title": "Avocado Nests",
     "desc": "Avocado Nests might be just the snack you are searching for. It is made with fresh avocado and ice cream.",
     "price": 12,
-    "photo": "http://localhost:8000/photo18.jpg"
+    "photo": "photo18.jpg"
   },
   {
-    "title": "Apple Pie Honey Wheat Scones",
+    "title": "Apple Pie Honey",
     "desc": "Apple Pie Honey Wheat Scones might be just the snack you are searching for. It is made with fresh apple pie and ice cream.",
     "price": 18,
-    "photo": "http://localhost:8000/photo19.jpg"
+    "photo": "photo19.jpg"
   },
   {
     "title": "Fall Fruit Compote",
     "desc": "Fall Fruit Compote might be just the snack you are searching for. It is made with fresh fruit compote and ice cream.",
     "price": 44,
-    "photo": "http://localhost:8000/photo20.jpg"
+    "photo": "photo20.jpg"
   },
   {
-    "title": "Vegan Strawberry Shortcake served with Vegan Whipped Cream",
+    "title": "Vegan Strawberry Shortcake",
     "desc": "Vegan Strawberry Shortcake served with Vegan Whipped Cream might be just the dessert you are searching for. It is made with fresh strawberry shortcake and vegan whipped cream.",
     "price": 6,
-    "photo": "http://localhost:8000/photo21.jpg"
+    "photo": "photo21.jpg"
   },
   {
     "title": "Chocolate Coconut Banana Bread",
     "desc": "Chocolate Coconut Banana Bread might be just the snack you are searching for. It is made with fresh chocolate coconut banana bread and ice cream.",
     "price": 30,
-    "photo": "http://localhost:8000/photo22.jpg"
+    "photo": "photo22.jpg"
   },
   {
     "title": "Easy Homemade Apple Fritters",
     "desc": "Easy Homemade Apple Fritters might be just the snack you are searching for. It is made with fresh apple fritters and ice cream.",
     "price": 14,
-    "photo": "http://localhost:8000/photo23.jpg"
+    "photo": "photo23.jpg"
   },
   {
     "title": "Easy Key Lime Pie",
     "desc": "Easy Key Lime Pie might be just the snack you are searching for. It is made with fresh key lime pie and ice cream.",
     "price": 12,
-    "photo": "http://localhost:8000/photo24.jpg"
+    "photo": "photo24.jpg"
   },
   {
-    "title": "Spinach and Gorgonzola Stuffed Flank Steak",
+    "title": "Spinach and Gorgonzola",
     "desc": "Spinach and Gorgonzola Stuffed Flank Steak might be just the snack you are searching for. It is made with fresh spinach and gorgonzola stuffed flank steak and ice cream.",
     "price": 18,
-    "photo": "http://localhost:8000/photo25.jpg"
+    "photo": "photo25.jpg"
   },
   {
     "title": "Lemon square bars",
     "desc": "Lemon square bars might be just the snack you are searching for. It is made with fresh lemon square bars and ice cream.",
     "price": 44,
-    "photo": "http://localhost:8000/photo26.jpg"
+    "photo": "photo26.jpg"
   },
   {
     "title": "Classic Eggs Benedict",
     "desc": "Classic Eggs Benedict might be just the snack you are searching for. It is made with fresh eggs benedict and ice cream.",
     "price": 6,
-    "photo": "http://localhost:8000/photo27.jpg"
+    "photo": "photo27.jpg"
   },
   {
     "title": "Favorite Moist Chocolate Cake",
     "desc": "Favorite Moist Chocolate Cake might be just the snack you are searching for. It is made with fresh moist chocolate cake and ice cream.",
     "price": 30,
-    "photo": "http://localhost:8000/photo28.jpg"
+    "photo": "photo28.jpg"
   },
   {
     "title": "Wholemeal Cake",
     "desc": "Wholemeal Cake might be just the snack you are searching for. It is made with fresh wholemeal cake and ice cream.",
     "price": 14,
-    "photo": "http://localhost:8000/photo29.jpg"
+    "photo": "photo29.jpg"
   },
   {
-    "title": "Balsamic & Honey Glazed Salmon with Lemony Asparagus",
+    "title": "Balsamic & Honey Glazed",
     "desc": "Balsamic & Honey Glazed Salmon with Lemony Asparagus might be just the snack you are searching for. It is made with fresh balsamic & honey glazed salmon with lemony asparagus and ice cream.",
     "price": 12,
-    "photo": "http://localhost:8000/photo30.jpg"
+    "photo": "photo30.jpg"
   },
   {
     "title": "Homemade Animal Crackers",
     "desc": "Homemade Animal Crackers might be just the snack you are searching for. It is made with fresh animal crackers and ice cream.",
     "price": 18,
-    "photo": "http://localhost:8000/photo31.jpg"
+    "photo": "photo31.jpg"
   },
   {
-    "title": "Quinoa Salad with Barberries & Nuts",
+    "title": "Quinoa Salad with Barberries",
     "desc": "Quinoa Salad with Barberries & Nuts might be just the snack you are searching for. It is made with fresh quinoa salad with barberries & nuts and ice cream.",
     "price": 44,
-    "photo": "http://localhost:8000/photo32.jpg"
+    "photo": "photo32.jpg"
   },
   {
     "title": "Smokey Rainbow Chili",
     "desc": "Smokey Rainbow Chili might be just the snack you are searching for. It is made with fresh rainbow chili and ice cream.",
     "price": 6,
-    "photo": "http://localhost:8000/photo33.jpg"
+    "photo": "photo33.jpg"
   },
   {
     "title": "How to Make Party Jollof Rice",
     "desc": "How to Make Party Jollof Rice might be just the snack you are searching for. It is made with fresh party jollof rice and ice cream.",
     "price": 30,
-    "photo": "http://localhost:8000/photo34.jpg"
+    "photo": "photo34.jpg"
   },
   {
     "title": "Green Bean Poriyal",
     "desc": "Green Bean Poriyal might be just the snack you are searching for. It is made with fresh green bean poriyal and ice cream.",
     "price": 14,
-    "photo": "http://localhost:8000/photo35.jpg"
+    "photo": "photo35.jpg"
   },
   {
     "title": "Triple Chocolate Pumpkin Pie",
     "desc": "Triple Chocolate Pumpkin Pie might be just the snack you are searching for. It is made with fresh triple chocolate pumpkin pie and ice cream.",
     "price": 12,
-    "photo": "http://localhost:8000/photo36.jpg"
+    "photo": "photo36.jpg"
   }
 ]
