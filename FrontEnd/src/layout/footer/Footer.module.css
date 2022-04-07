@@ -1,13 +1,7 @@
-<<<<<<< HEAD
 footer{
     padding:  4rem 0;
     background-color: var(--primary-color-dark);
     margin-top: auto;
-=======
-footer {
-  padding: 4rem 0;
-  background-color: var(--primary-color-dark);
->>>>>>> aacfc8c9ff805532082e7dcac166bf33424237d4
 }
 
 footer .copysection {
