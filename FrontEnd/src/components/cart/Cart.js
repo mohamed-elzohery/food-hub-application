@@ -8,6 +8,7 @@ import CartItem from "./CartItem";
 import useInput from "../../hooks/use-input";
 import { validateName } from "../SiginupForm/SignUpForm";
 import FormGroup from "../FormGroup/FormGroup";
+import axios from "axios";
 
 const validatePhone = (val) => {
   const phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
@@ -74,6 +75,8 @@ const Checkout = () => {
 };
 
 const OrderForm = () => {
+  const token = useSelector(state => state.auth.token);
+  const cartItems = useSelector(state =>  state.cart.cartItems);
   const dispatch = useDispatch();
   const {
     enteredValue: enteredName,
@@ -111,7 +114,28 @@ const OrderForm = () => {
 
   const onSumbitHandler = (e) => {
     e.preventDefault();
-    //Post request
+    console.log();
+    const order = {
+      name:enteredName,
+      phone: enteredPhone,
+      address: enteredAddress,
+      meals: cartItems.map(item => {return {mealId: item.id, quantity: item.amount}})
+    }
+    console.log(order);
+    axios.post('http://localhost:8000/api/v1/orders', order, {
+      headers: {
+        'authorization': `Bearer ${token}`,
+      }
+    })
+    .then(response=>{
+      console.log(response.data.message);
+      const notificatioId = Date.now();
+      dispatch(UIActions.addNotification({msg: response.data.message}));
+      dispatch(UIActions.closeCart());
+      setTimeout(() => dispatch(UIActions.removeNotification(notificatioId)),3000)
+    }).catch(err => {
+      console.log(err.message);
+    })
   };
 
   return (

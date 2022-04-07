@@ -1,5 +1,5 @@
 const express = require('express');
-const authGuard = require('../../middleware/authGuard');
+const {authGuard, authorize} = require('../../middleware/authGuard');
 
 const {
   getAllOrders,
@@ -9,7 +9,7 @@ const {
 
 const orderRouter = express.Router();
 orderRouter.use(authGuard);
-orderRouter.route('/').get(getAllOrders).post(createNewOrder);
+orderRouter.route('/').get(authorize('user'), getAllOrders).post(createNewOrder);
 
 orderRouter.route('/:id').get(findOrderById);
 

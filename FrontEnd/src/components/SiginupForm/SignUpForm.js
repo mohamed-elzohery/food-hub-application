@@ -136,7 +136,7 @@ const SignUpForm = () => {
           email: enteredEmail,
           password: enteredPassword,
           name: enteredName,
-          // returnSecureToken: true,
+          role: 'user'
         })
         .then((res) => {
           console.log(res);
