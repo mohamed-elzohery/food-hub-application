@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState, forwardRef } from 'react';
 import classes from './Meal.module.css';
 import { useDispatch } from 'react-redux';
@@ -9,18 +8,6 @@ const Meal = forwardRef((props, ref) => {
     const [amount, setAmount] = useState(0);
     const {title, desc, id, price, photo} = props;
     const dispatch = useDispatch();
-=======
-import React, { useState } from "react";
-import classes from "./Meal.module.css";
-import MealImg from "./meal.jpg";
-import { useDispatch } from "react-redux";
-import { CartActions } from "../../slices/Cart-slice";
-
-const Meal = (props) => {
-  const [amount, setAmount] = useState(0);
-  const { title, desc, id, price } = props;
-  const dispatch = useDispatch();
->>>>>>> 35ed38e990059c64967e7dbdb638b2902ee7b774
 
   const onIncHandler = () => {
     setAmount(amount + 1);
@@ -30,7 +17,6 @@ const Meal = (props) => {
     setAmount(amount - 1);
   };
 
-<<<<<<< HEAD
     const onAddHandler = () => {
         const notificationId = Date.now();
         dispatch(CartActions.addItem({id, title, desc, amount, price, photo}));
@@ -52,53 +38,8 @@ const Meal = (props) => {
                 <button onClick={onIncHandler}>+</button>
             </div>
             <button className={`${classes.orderbtn} ${!amount ? classes.disabled : ''}`} onClick={onAddHandler} disabled={!amount}>Add To Cart</button>
-=======
-  const onAddHandler = () => {
-    dispatch(CartActions.addItem({ id, title, desc, amount, price }));
-  };
-
-  return (
-    <div className={classes.meal}>
-      <img src={MealImg} alt="meal" />
-      <div className={classes.textbox}>
-        <h3>{title}</h3>
-        <p>{desc}</p>
-        <p className={classes.price}>
-          Price: <span>{`${price.toFixed(2)}`}</span> LE
-        </p>
-      </div>
-      <div className={classes.counter}>
-        <input
-          className={!amount ? classes.reset : ""}
-          disabled
-          type="number"
-          value={amount}
-        />
-        <div className={classes.controls}>
-          <button
-            onClick={onDecHandler}
-            disabled={!amount}
-            className={`${!amount ? classes.disabled : ""}`}
-          >
-            -
-          </button>
-          <button onClick={onIncHandler}>+</button>
->>>>>>> 35ed38e990059c64967e7dbdb638b2902ee7b774
         </div>
-        <button
-          className={`${classes.orderbtn} ${!amount ? classes.disabled : ""}`}
-          onClick={onAddHandler}
-          disabled={!amount}
-        >
-          Add To Cart
-        </button>
       </div>
-    </div>
-<<<<<<< HEAD
 })
-=======
-  );
-};
->>>>>>> 35ed38e990059c64967e7dbdb638b2902ee7b774
 
 export default Meal;
