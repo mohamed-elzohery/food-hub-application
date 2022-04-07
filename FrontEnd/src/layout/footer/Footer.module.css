@@ -1,12 +1,12 @@
-footer{
-    padding:  4rem 0;
-    background-color: var(--primary-color-dark);
+footer {
+  padding: 4rem 0;
+  background-color: var(--primary-color-dark);
 }
 
-footer .copysection{
-    color: #FFF;
-    font-size: 1.6rem;
-    font-family: 'Roboto';
-    text-transform: capitalize;
-    text-align: center;
+footer .copysection {
+  color: #fff;
+  font-size: 1.6rem;
+  font-family: "Roboto";
+  text-transform: capitalize;
+  text-align: center;
 }

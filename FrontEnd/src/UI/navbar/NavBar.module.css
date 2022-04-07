@@ -29,6 +29,6 @@
     margin-right: 6rem;
 }
 
-@media only screen and (max-width: 40em) {
+@media only screen and (max-width: 50em) {
     .navlinks{display: none}
 }

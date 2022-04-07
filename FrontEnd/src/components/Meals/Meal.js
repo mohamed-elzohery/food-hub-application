@@ -34,7 +34,9 @@ const Meal = forwardRef((props, ref) => {
 
   return (
     <div className={classes.meal} ref={ref}>
-      <img src={`http://localhost:8000/${photo}`} alt="meal" />
+      <div className={classes["img-container"]}>
+        <img src={`http://localhost:8000/${photo}`} alt="meal" />
+      </div>
       <div className={classes.textbox}>
         <h3>{title}</h3>
         <p>{desc}</p>

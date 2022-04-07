@@ -6,7 +6,7 @@
   max-width: 90rem;
   transition: all 0.3s ease-in-out;
   /* border-radius: 3rem; */
-  height: 25rem;
+  height: 30rem;
   animation: appearFromBottom 0.3s;
 }
 
@@ -19,10 +19,14 @@
   transform: translateY(-0.2rem);
 }
 
-.meal img {
-  width: 37%;
+.meal .img-container {
+  flex:0  0 37%;
   height: inherit;
+}
+.meal .img-container img{
+  width: 100%;
   object-fit: cover;
+  height: 100%;
 }
 
 .meal .textbox {
@@ -156,8 +160,8 @@
     height: auto;
   }
 
-  .meal img {
-    width: 100%;
+  .meal .img-container {
+    flex: 1 0 100%;
     height: 38rem;
   }
 

@@ -5,10 +5,11 @@ function Error() {
     <div
       style={{
         backgroundColor: "red",
-        height: "calc(100vh - 10rem)",
+        height: "calc(100vh - 9.9rem)",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        fontSize: "8rem",
       }}
     >
       Error 404 Pages is not found.

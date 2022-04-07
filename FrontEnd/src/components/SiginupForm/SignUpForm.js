@@ -1,11 +1,11 @@
 import React from "react";
-import classes from "../styles/SignUpForm.module.css";
-import useInput from "../hooks/use-input";
-import FormGroup from "./FormGroup";
+import classes from "./SignUpForm.module.css";
+import useInput from "../../hooks/use-input";
+import FormGroup from "../FormGroup/FormGroup";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setToken, login } from "../slices/Auth-slice";
-import { toggleLoginAction } from "../slices/Login-State-slice";
+import { setToken, login } from "../../slices/Auth-slice";
+import { toggleLoginAction } from "../../slices/Login-State-slice";
 import GoogleOuath2 from "./GoogleOuath2";
 import axios from "axios";
 

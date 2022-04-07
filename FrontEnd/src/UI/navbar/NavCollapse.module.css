@@ -17,7 +17,7 @@
     margin-bottom: 1rem;
 }
 
-@media only screen and (max-width: 40em) {
+@media only screen and (max-width: 50em) {
     .collapse{
         display: flex;
         margin-left: auto;

@@ -1,10 +1,9 @@
 import React from "react";
-import Header from "./layout/header/Header";
 import SideBar from "./UI/sidebar/SideBar";
-import SignUpForm from "./components/SignUpForm";
 import { Navigate, Route, Routes } from "react-router-dom";
-import Error from "./components/Error";
+import Error from "./pages/Error";
 import Home from "./pages/Home";
+import Register from "./pages/Register";
 //uncomment if you want to change user pw
 // import Profile from "./components/Profile";
 import Footer from "./layout/footer/Footer";
@@ -17,14 +16,13 @@ function App() {
   const isLoggedIn = useSelector((state) => state.auth.isLoggined);
   return (
     <div className="App">
-      <Header />
       {isSidebarShown && <SideBar />}
       {isCartOpen && <Cart />}
       <main>
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/" element={<Navigate to="/home" />} />
-          {!isLoggedIn && <Route path="/auth" element={<SignUpForm />} />}
+          {!isLoggedIn && <Route path="/auth" element={<Register />} />}
           <Route path="*" element={<Error />} />
         </Routes>
       </main>
