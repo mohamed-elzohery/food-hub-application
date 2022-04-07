@@ -3,7 +3,7 @@
   margin: 20rem auto;
   padding: 12px 30px;
   border: 1px solid #000;
-  background-color: #fff;
+  background-color: #ccc;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 20px;
 }
@@ -48,7 +48,7 @@
 .form-action button {
   font-size: 5rem;
   color: var(--sec-color-dark);
-  margin: 0 1rem;
+  margin: 3rem 1rem 0;
   font-family: "BubblegumSans";
   outline: none;
   border-radius: 0.5rem;
@@ -63,6 +63,7 @@
 }
 form .form-action {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 3rem 0;

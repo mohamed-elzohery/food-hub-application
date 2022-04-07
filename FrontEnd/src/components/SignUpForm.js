@@ -6,12 +6,14 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setToken, login } from "../slices/Auth-slice";
 import { toggleLoginAction } from "../slices/Login-State-slice";
+import GoogleOuath2 from "./GoogleOuath2";
 import axios from "axios";
 
 const emailRegex =
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-const usernameRegex = /^[A-Za-z]\w*$/;
-
+const usernameRegex = /^[a-zA-Z\s\.]*$/;
+//^[A-Za-z]\w*$ to not accept any whitespaces
+//^[a-zA-Z\s\.]*$ to accept only dots and spaces
 export const validateName = (val) => {
   let name = val.toString().trim();
   if (name === "") return { isValid: false, msg: "Name is required" };
@@ -137,6 +139,7 @@ const SignUpForm = () => {
           // returnSecureToken: true,
         })
         .then((res) => {
+          console.log(res);
           dispatch(setToken(res.data.token));
           dispatch(login());
           navigate("/");
@@ -205,6 +208,7 @@ const SignUpForm = () => {
       </p>
 
       <div className={classes["form-action"]}>
+        <GoogleOuath2 />
         {isLogin ? (
           <button
             className={`${

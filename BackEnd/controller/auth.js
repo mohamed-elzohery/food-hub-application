@@ -28,7 +28,7 @@ const loginController = catchAsync(async (req, res, next) => {
   res.json({
     success: true,
     // data: user,//leh btrg3 l data?5555555
-    token: { token },
+    token: { token, expiredDate },
     message: 'User is logged in successfully',
   });
 });
@@ -45,7 +45,7 @@ const registerController = catchAsync(async (req, res, next) => {
   res.json({
     success: true,
     // data: user, //leh btrg3 l data?5555555
-    token: { token },
+    token: { token, expiredDate },
     message: 'User is created successfully',
   });
 });
