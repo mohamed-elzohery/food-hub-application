@@ -7,7 +7,6 @@ import Error from "./components/Error";
 import Home from "./pages/Home";
 //uncomment if you want to change user pw
 // import Profile from "./components/Profile";
-import NavBar from "./UI/navbar/NavBar";
 import Footer from "./layout/footer/Footer";
 import Cart from "./components/cart/Cart";
 import { useSelector } from "react-redux";
@@ -25,7 +24,7 @@ function App() {
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/" element={<Navigate to="/home" />} />
-          {!isLoggedIn && <Route path="/auth" element={<SignUpForm />} />}{" "}
+          {!isLoggedIn && <Route path="/auth" element={<SignUpForm />} />}
           <Route path="*" element={<Error />} />
         </Routes>
       </main>
