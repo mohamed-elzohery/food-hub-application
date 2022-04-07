@@ -10,9 +10,7 @@ function GoogleOuath2() {
   const dispatch = useDispatch();
   let navigate = useNavigate();
   const isLogin = useSelector((state) => state.login.isLogin);
-
-  const clientId =
-    "527976908655-u47ehfvsd0kd6o41348qp4qqm2if69rv.apps.googleusercontent.com";
+  const clientId = process.env.REACT_APP_CLIENT_ID;
   const [showLoginButton, setLoginButton] = useState(true);
 
   const onLoginSuccess = (response) => {
@@ -69,7 +67,7 @@ function GoogleOuath2() {
           buttonText="Login"
           onSuccess={onLoginSuccess}
           onFailure={onLoginFailure}
-          cookiePolicy={"single_host_origin"}
+          // cookiePolicy={"single_host_origin"}
           className={["google-login"]}
         />
       ) : null}
