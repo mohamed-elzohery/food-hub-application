@@ -1,12 +1,10 @@
-
 .order-form {
   padding: 1.2rem 3rem;
-  background-color: rgba(255, 255, 255, .85);
+  background-color: rgba(255, 255, 255, 0.85);
   max-width: 60rem;
-
 }
 
-.order-form input:last-child{
+.order-form input:last-child {
   margin-bottom: 3rem;
 }
 

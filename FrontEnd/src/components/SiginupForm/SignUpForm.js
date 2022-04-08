@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setToken, login } from "../../slices/Auth-slice";
 import { toggleLoginAction } from "../../slices/Login-State-slice";
+import { UIActions } from "../../slices/UI-slice";
 import GoogleOuath2 from "./GoogleOuath2";
 import axios from "axios";
 
@@ -120,13 +121,34 @@ const SignUpForm = () => {
           // returnSecureToken: true,
         })
         .then((res) => {
+          console.log(res);
           dispatch(setToken(res.data.token));
           dispatch(login());
           navigate("/");
+          const notificatioId = Date.now();
+          dispatch(
+            UIActions.addNotification({ msg: "Successfully logged in" })
+          );
+          setTimeout(
+            () => dispatch(UIActions.removeNotification(notificatioId)),
+            3000
+          );
         })
-        .catch((err) => {
-          alert("username or password is incorrect");
-          console.log(err.message);
+        .catch((error) => {
+          alert(error.response.data.error.message);
+          // const notificatioId = Date.now();
+          // dispatch(
+          //   UIActions.addNotification({
+          //     msg: "error.response.data.error",
+          //   })
+          // );
+          // setTimeout(
+          //   () => dispatch(UIActions.removeNotification(notificatioId)),
+          //   3000
+          // );
+
+          // console.log(err.message);
+          // alert(err.message);
         });
     } else {
       // "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCzTfDrGGGFjKW3KWnQHVSW6nq7P-F3DXU",
@@ -136,103 +158,109 @@ const SignUpForm = () => {
           email: enteredEmail,
           password: enteredPassword,
           name: enteredName,
-          role: 'user'
+          role: "user",
         })
         .then((res) => {
           dispatch(setToken(res.data.token));
           dispatch(login());
           navigate("/");
+          const notificatioId = Date.now();
+          dispatch(
+            UIActions.addNotification({ msg: "Successfully Signed Up" })
+          );
+          setTimeout(
+            () => dispatch(UIActions.removeNotification(notificatioId)),
+            3000
+          );
         })
-        .catch((err) => {
-          alert("username or password is incorrect");
-          console.log(err.message);
+        .catch((error) => {
+          alert(error.response.data.error.message);
         });
     }
   };
 
   return (
     <>
-    <form onSubmit={onSumbitHandler} className={classes["order-form"]}>
-
-      {!isLogin ? (
+      <form onSubmit={onSumbitHandler} className={classes["order-form"]}>
+        {!isLogin ? (
+          <FormGroup
+            type="text"
+            name="Name"
+            valueChangedHandler={nameChangeHandler}
+            inputBlurHandler={nameBlurHandler}
+            enteredValue={enteredName}
+            inputHasError={nameInputHasError}
+            errMsg={nameErrMsg}
+          />
+        ) : (
+          ""
+        )}
         <FormGroup
           type="text"
-          name="Name"
-          valueChangedHandler={nameChangeHandler}
-          inputBlurHandler={nameBlurHandler}
-          enteredValue={enteredName}
-          inputHasError={nameInputHasError}
-          errMsg={nameErrMsg}
+          name="Email"
+          valueChangedHandler={emailChangeHandler}
+          inputBlurHandler={emailBlurHandler}
+          enteredValue={enteredEmail}
+          inputHasError={emailInputHasError}
+          errMsg={emailErrMsg}
         />
-      ) : (
-        ""
-      )}
-      <FormGroup
-        type="text"
-        name="Email"
-        valueChangedHandler={emailChangeHandler}
-        inputBlurHandler={emailBlurHandler}
-        enteredValue={enteredEmail}
-        inputHasError={emailInputHasError}
-        errMsg={emailErrMsg}
-      />
 
-      <FormGroup
-        type="password"
-        name="Password"
-        valueChangedHandler={passwordChangeHandler}
-        inputBlurHandler={passwordBlurHandler}
-        enteredValue={enteredPassword}
-        inputHasError={passwordInputHasError}
-        errMsg={passwordErrMsg}
-      />
-      {!isLogin ? (
         <FormGroup
           type="password"
-          name="Confim Password"
-          valueChangedHandler={conpasswordChangeHandler}
-          inputBlurHandler={conpasswordBlurHandler}
-          enteredValue={conenteredPassword}
-          inputHasError={conpasswordInputHasError}
-          errMsg={conpasswordErrMsg}
+          name="Password"
+          valueChangedHandler={passwordChangeHandler}
+          inputBlurHandler={passwordBlurHandler}
+          enteredValue={enteredPassword}
+          inputHasError={passwordInputHasError}
+          errMsg={passwordErrMsg}
         />
-      ) : (
-        ""
-      )}
-      <p className={classes["question"]}>
-        {isLogin ? "Not a registerd user?" : "Already a registered user?"}
-        <button onClick={switchAuthModeHandler} type="button">
-          {isLogin ? "Register" : "Login!"}
-        </button>
-      </p>
-
-      <div className={classes["form-action"]}>
-        <GoogleOuath2 />
-        {isLogin ? (
-          <button
-            className={`${
-              isEmailValid && isPasswordValid ? "" : classes.disabled
-            }`}
-          >
-            {isLogin ? "Login" : "SignUp"}
-          </button>
+        {!isLogin ? (
+          <FormGroup
+            type="password"
+            name="Confim Password"
+            valueChangedHandler={conpasswordChangeHandler}
+            inputBlurHandler={conpasswordBlurHandler}
+            enteredValue={conenteredPassword}
+            inputHasError={conpasswordInputHasError}
+            errMsg={conpasswordErrMsg}
+          />
         ) : (
-          <button
-            className={`${
-              isEmailValid &&
-              isNameValid &&
-              isPasswordValid &&
-              conisPasswordValid
-                ? ""
-                : classes.disabled
-            }`}
-          >
-            {isLogin ? "Login" : "SignUp"}
-          </button>
+          ""
         )}
-      </div>
-    </form>
-  </>
+        <p className={classes["question"]}>
+          {isLogin ? "Not a registerd user?" : "Already a registered user?"}
+          <button onClick={switchAuthModeHandler} type="button">
+            {isLogin ? "Register" : "Login!"}
+          </button>
+        </p>
+
+        <div className={classes["form-action"]}>
+          <GoogleOuath2 />
+          {isLogin ? (
+            <button
+              className={`${
+                isEmailValid && isPasswordValid ? "" : classes.disabled
+              }`}
+            >
+              {isLogin ? "Login" : "SignUp"}
+            </button>
+          ) : (
+            <button
+              className={`${
+                isEmailValid &&
+                isNameValid &&
+                isPasswordValid &&
+                conisPasswordValid
+                  ? ""
+                  : classes.disabled
+              }`}
+            >
+              {isLogin ? "Login" : "SignUp"}
+            </button>
+          )}
+        </div>
+      </form>
+    </>
   );
 };
 

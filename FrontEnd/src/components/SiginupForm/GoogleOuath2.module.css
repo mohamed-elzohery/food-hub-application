@@ -1,8 +1,6 @@
 .google-login {
   display: block;
-  background-color: var(--primary-color-dark)!important;
-  color: #FFF!important;
-  opacity: 1!important;
+  background-color: var(--primary-color-dark) !important;
+  color: #fff !important;
+  opacity: 1 !important;
 }
-
-
