@@ -1,4 +1,4 @@
-# Welcome to our FoodHub Project! 🥖
+# Welcome to our FoodHub Web-App-Application! 🥖
 
 ![](thoughtworks-gif_dribbble.gif)
 
