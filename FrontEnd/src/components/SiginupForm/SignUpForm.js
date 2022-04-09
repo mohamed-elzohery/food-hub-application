@@ -135,17 +135,18 @@ const SignUpForm = () => {
           );
         })
         .catch((error) => {
-          alert(error.response.data.error.message);
-          // const notificatioId = Date.now();
-          // dispatch(
-          //   UIActions.addNotification({
-          //     msg: "error.response.data.error",
-          //   })
-          // );
-          // setTimeout(
-          //   () => dispatch(UIActions.removeNotification(notificatioId)),
-          //   3000
-          // );
+          // alert(error.response.data.error.message);
+          // console.log(error.response.data.error);
+          const notificatioId = Date.now();
+          dispatch(
+            UIActions.addNotification({
+              msg: error.response.data.error.message,
+            })
+          );
+          setTimeout(
+            () => dispatch(UIActions.removeNotification(notificatioId)),
+            3000
+          );
 
           // console.log(err.message);
           // alert(err.message);
